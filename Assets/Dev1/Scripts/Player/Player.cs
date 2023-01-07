@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private InputSystem _inputSystem = new();
+    private InputSystem _inputSystem;
     private Rigidbody _rigidbody;
-    private Camera _camera;
 
     [SerializeField] private int _movementSpeed;
     [SerializeField] private int _rotationSpeed;
-    [SerializeField] private Vector3 _cameraOffset;
-    [SerializeField] private int _cameraMovementSpeed;
+    [SerializeField] private int _jumpForce;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _camera = Camera.main;
+        _inputSystem = GetComponent<InputSystem>();
+
+        _inputSystem.OnSpacePressed += Jump;
     }
 
     private void Update()
@@ -25,20 +25,15 @@ public class Player : MonoBehaviour
         Rotate();
     }
 
-    private void FixedUpdate()
-    {
-        CameraMove();
-    }
-
     private void Move()
     {
-        Vector3 direction = _inputSystem.GetDirectionMove().normalized;
+        Vector3 direction = _inputSystem.GetDirectionMove();
         _rigidbody.velocity += direction * _movementSpeed * Time.deltaTime;
     }
 
     private void Rotate()
     {
-        Vector3 direction = _inputSystem.GetDirectionMove().normalized;
+        Vector3 direction = _inputSystem.GetDirectionMove();
 
         if (direction.x == 0 && direction.z == 0)
             return;
@@ -47,11 +42,12 @@ public class Player : MonoBehaviour
             transform.rotation, Quaternion.LookRotation(direction), _rotationSpeed * Time.deltaTime);
     }
 
-    private void CameraMove()
+    private void Jump()
     {
-        Vector3 cameraPosition = new Vector3(
-            transform.position.x + _cameraOffset.x, transform.position.y + _cameraOffset.y, transform.position.z + _cameraOffset.z);
+        var ground = Physics.OverlapSphere(
+            new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), 1);
 
-        _camera.transform.position = Vector3.Lerp(_camera.transform.position, cameraPosition, _cameraMovementSpeed * Time.deltaTime);
+        if(ground.Length > 1)
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpForce, _rigidbody.velocity.z);
     }
 }
