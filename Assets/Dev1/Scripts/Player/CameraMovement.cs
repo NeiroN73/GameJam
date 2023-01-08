@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    private Player _player;
+    public Player _player;
 
     [SerializeField] private Vector3 _cameraOffset;
     [SerializeField] private int _cameraMovementSpeed;
