@@ -18,5 +18,8 @@ public class PlayerSpawner : MonoBehaviour
 
         CameraMovement camera = Camera.main.GetComponent<CameraMovement>();
         camera.Initialize(player);
+
+        UI ui = FindObjectOfType<UI>();
+        ui.Initialize(player.GetComponent<PickingMoney>());
     }
 }
