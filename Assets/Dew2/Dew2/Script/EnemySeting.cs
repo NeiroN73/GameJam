@@ -9,6 +9,10 @@ public class EnemySeting : MonoBehaviour
     private GameObject _player;
     public Transform target;
 
+    private Camera _camera;
+
+    private ReactionEnemy _scriptRect;
+
     List<Transform> _target = new List<Transform>();
 
     private  int _randomTarget, _randomAct;// рандомные числа _randomTarget-куда идти _randomAct - действие
@@ -24,15 +28,19 @@ public class EnemySeting : MonoBehaviour
 
     private void Awake()
     {
-
+        _camera = Camera.main;
         time = timer;
-        agent = GetComponent<NavMeshAgent>();
-        _player = GameObject.FindWithTag("Player");
+        agent = GetComponent<NavMeshAgent>();   
+        _scriptRect = GetComponentInChildren<ReactionEnemy>();
         foreach (Transform Target in target.GetComponentInChildren<Transform>())//добавить в list
         {
             _target.Add(Target);
         }
 
+    }
+    private void Start()
+    {
+        _player = GameObject.FindWithTag("Player");
     }
 
     private void FixedUpdate()
@@ -86,11 +94,13 @@ public class EnemySeting : MonoBehaviour
         {
             case false:
         agent.SetDestination(_player.transform.position);
+                
                 break;
             case true:
                 agent.SetDestination(_player.transform.position);
                 break;
         }
+        _scriptRect.Sight(_camera,fear);
     }
 
     void Dead()
