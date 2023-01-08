@@ -6,35 +6,41 @@ using UnityEngine.UIElements;
 
 public class ReactionEnemy : MonoBehaviour 
 {
-    public Transform arrayReaction;
-    List<GameObject> listReactions = new List<GameObject>();
+    public GameObject barKey;
+    private Camera _camera;
 
-    private void Start()
+    private void Awake()
     {
-        foreach (GameObject Reactions in gameObject.GetComponentInChildren<Transform>())
-        {
-            listReactions.Add(Reactions);
-        }
+        _camera = Camera.main;
+        
     }
-    
-    public void Sight(Camera camera, bool fear)
+     public void Achtung( bool fear)
     {
-        transform.LookAt(camera.transform.position);
         switch (fear)
-        { 
+        {
+            case true:
+                
+                break;
             case false:
 
-            foreach (GameObject Reactions in listReactions)
-            {
-                Reactions.SetActive(true);
-            }
-                break;
-            case true:
-                 for (int i = 1; i < listReactions.Count; i++ )
-                {
-                    listReactions[i].SetActive(true);
-                }
                 break;
         }
+        Sight(fear);
+    }
+    public void Sight(bool beside)
+    {
+        switch (beside)
+        {
+            case true:
+            barKey.SetActive(true);
+                break;
+            case false:
+            barKey.SetActive(false);
+                break;
+            default:
+            barKey.SetActive(false);
+                break;
+        }
+        transform.LookAt(_camera.transform.position);
     }
 }

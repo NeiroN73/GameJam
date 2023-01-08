@@ -49,17 +49,17 @@ public class EnemySeting : MonoBehaviour
         _distance = Vector3.Distance(agent.transform.position, _player.transform.position);
         if (_distance <= agarDistance)
         {
-
-            Agar();
+            _scriptRect.Sight(true);
         }
         else
         {
             _trargetDistance = Vector3.Distance(agent.transform.position, _target[_randomTarget].position);
+            _scriptRect.Sight(false);
             Idle();
         }
     }
 
-
+   //действи при нормально состоянии 
     void Idle()
     {
         if (_trargetDistance > 3)
@@ -68,13 +68,13 @@ public class EnemySeting : MonoBehaviour
         }
         else
         {
-            //_randomAct = Random.Range(0, 1);
+            _randomAct = Random.Range(0, 1);
             switch (_randomAct)
             {
                 case 1:
                     _randomTarget = Random.Range(0, _target.Count);
                     break;
-                default:
+                default://ожидание при 0
                     time -= Time.deltaTime * 2;
                     if (time <= 1)
                     {
@@ -90,17 +90,9 @@ public class EnemySeting : MonoBehaviour
 
     void Agar()
     {
-        switch (fear)
-        {
-            case false:
-        agent.SetDestination(_player.transform.position);
-                
-                break;
-            case true:
-                agent.SetDestination(_player.transform.position);
-                break;
-        }
-        _scriptRect.Sight(_camera,fear);
+       
+            agent.SetDestination(_player.transform.position);
+             _scriptRect.Achtung(fear);
     }
 
     void Dead()
