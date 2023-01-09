@@ -24,7 +24,6 @@ public class PlayerAnimator : MonoBehaviour
     private void Update()
     {
         Vector3 direction = _inputSystem.GetDirectionMove();
-        print(direction);
         if (direction.x == 0 && direction.z == 0)
         {
             _animator.SetBool("isMoving", false);
