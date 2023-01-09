@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<GameObject> GameObjects = new List<GameObject>();
+    void OnTriggerEnter(Collider other)
     {
+        switch (other.CompareTag("Enemy") || other.CompareTag("Item"))
+        {
+            case true:
+            GameObjects.Add(other.gameObject);
+                break;
+            case false:
+                break;
+            default:
+                GameObjects.Clear();
+                break;
+        }
+
+            
+            
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerExit(Collider other)
     {
+        switch (other.CompareTag("Enemy") || other.CompareTag("Item"))
+        {
+            case true:
+                GameObjects.Remove(other.gameObject);
+                break;
+            default:
+                GameObjects.Clear();
+                break;
+
+        }
         
     }
 }
