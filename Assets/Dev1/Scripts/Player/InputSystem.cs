@@ -5,7 +5,7 @@ using System;
 
 public class InputSystem : MonoBehaviour
 {
-    public event Action OnLeftMouseClick;
+    public event Action<Vector3> OnLeftMouseClick;
     public event Action OnSpacePressed;
     public Vector3 GetDirectionMove()
     {
@@ -19,7 +19,7 @@ public class InputSystem : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            OnLeftMouseClick?.Invoke();
+            OnLeftMouseClick?.Invoke(Input.mousePosition);
         }
 
         if(Input.GetButtonDown("Jump"))

@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponBehaviour : MonoBehaviour
 {
     private InputSystem _inputSystem;
+    private Camera _camera;
 
     private Weapon _currentWeapon;
 
@@ -12,15 +13,16 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void Start()
     {
-        _currentWeapon = GetComponent<HandGun>();
+        _currentWeapon = GetComponent<CakeCatapult>();
 
         _inputSystem = GetComponent<InputSystem>();
+        _camera = Camera.main;
 
         _inputSystem.OnLeftMouseClick += OnAttack;
 
         _weaponDictionary = new()
         {
-            { ItemType.Weapon1, GetComponent<HandGun>() },
+            { ItemType.Weapon1, GetComponent<CakeCatapult>() },
             { ItemType.Weapon2, GetComponent<Melee>() },
         };
     }
@@ -41,8 +43,18 @@ public class WeaponBehaviour : MonoBehaviour
         }
     }
 
-    private void OnAttack()
+    private void OnAttack(Vector3 mousePosition)
     {
+        //Vector3 direction = _camera.ScreenToWorldPoint(mousePosition) - transform.position;
+        //direction = new Vector3(0, direction.y, 0);
+        //transform.LookAt(direction);
+
+        //Vector3 mousePos = _camera.ScreenToWorldPoint(mousePosition);
+        //Vector3 perpendicular = transform.position - mousePos;
+        //perpendicular = new Vector3(0, perpendicular.y, 0);
+        //transform.rotation = Quaternion.LookRotation(perpendicular);
+        //print(mousePosition);
+
         _currentWeapon.Attack();
     }
 }
