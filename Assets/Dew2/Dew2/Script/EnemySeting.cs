@@ -14,12 +14,12 @@ public class EnemySeting : MonoBehaviour
 
     private ReactionEnemy _scriptRect;
 
-    List<Transform> _target = new List<Transform>();
+    List<Transform> _point = new List<Transform>();
 
     private  int _randomTarget, _randomAct;// рандомные числа _randomTarget-куда идти _randomAct - действие
 
 
-    private float _distance, _trargetDistance;
+    private float  _trargetDistance;
     public float agarDistance;
 
     public float time, timer = 15;//таймер
@@ -35,7 +35,7 @@ public class EnemySeting : MonoBehaviour
         _scriptRect = GetComponentInChildren<ReactionEnemy>();
         foreach (Transform Target in target.GetComponentInChildren<Transform>())//добавить в list
         {
-            _target.Add(Target);
+            _point.Add(Target);
         }
 
     }
@@ -46,26 +46,20 @@ public class EnemySeting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //действие при условии _distance
-        _distance = Vector3.Distance(agent.transform.position, _player.transform.position);
-        if (_distance <= agarDistance)
-        {
-            _scriptRect.Sight(true);
-        }
-        else
-        {
-            _trargetDistance = Vector3.Distance(agent.transform.position, _target[_randomTarget].position);
-            _scriptRect.Sight(false);
-            Idle();
-        }
+        
+        Idle();
     }
 
    //действи при нормально состоянии 
+   public void Walking()
+    {
+        
+    }
     void Idle()
     {
         if (_trargetDistance > 3)
         {
-            agent.SetDestination(_target[_randomTarget].position);
+            agent.SetDestination(_point[_randomTarget].position);
         }
         else
         {
@@ -73,13 +67,13 @@ public class EnemySeting : MonoBehaviour
             switch (_randomAct)
             {
                 case 1:
-                    _randomTarget = Random.Range(0, _target.Count);
+                    _randomTarget = Random.Range(0, _point.Count);
                     break;
                 default://ожидание при 0
                     time -= Time.deltaTime * 2;
                     if (time <= 1)
                     {
-                        _randomTarget = Random.Range(0, _target.Count);
+                        _randomTarget = Random.Range(0, _point.Count);
                         time = timer;
 
                     }
@@ -92,11 +86,11 @@ public class EnemySeting : MonoBehaviour
     void Agar()
     {
        
-            agent.SetDestination(_player.transform.position);
+            agent.SetDestination(target.transform.position);
              _scriptRect.Achtung(fear);
     }
 
-    void Dead()
+    public void Dead()
     {
 
     }
