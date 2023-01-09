@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
             new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), 1);
 
         if(ground.Length > 1)
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpForce, _rigidbody.velocity.z);
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpForce, _rigidbody.velocity.z); //может быть баг из за разного фпс
+
     }
 }

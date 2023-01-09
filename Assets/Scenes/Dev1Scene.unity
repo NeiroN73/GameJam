@@ -429,7 +429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9090899730151270935, guid: d43522d338cc17048a98f6194502722d, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9090899730151270935, guid: d43522d338cc17048a98f6194502722d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1081,6 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9d4ecf438466a41905e951e370af63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
   _cameraOffset: {x: 0, y: 2, z: -5}
   _cameraMovementSpeed: 10
 --- !u!1 &987330978
@@ -1215,7 +1216,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1358008377
 GameObject:
