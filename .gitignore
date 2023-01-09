@@ -70,3 +70,14 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Model/ПИРОГАТАПУЛЬТА/пироготапульта_DefaultMaterial_Roughness.png
+Assets/Model/ПИРОГАТАПУЛЬТА/пироготапульта_DefaultMaterial_Metallic.png
+Assets/Model/ПИРОГАТАПУЛЬТА/пироготапульта_DefaultMaterial_BaseColor.png
+Assets/Model/ПИРОГАТАПУЛЬТА/пироготапульта.fbx
+Assets/Model/оркжпу/пукалка_зажигалка_Metallic.png
+Assets/Model/оркжпу/пукалка_зажигалка_BaseColor.png
+Assets/Model/оркжпу/пукалка_жопа_Roughness.png
+Assets/Model/оркжпу/пукалка_жопа_Metallic.png
+Assets/Model/оркжпу/пукалка_жопа_Height.png
+Assets/Model/оркжпу/пукалка_жопа_BaseColor.png
+Assets/Model/оркжпу/пукалка.fbx
