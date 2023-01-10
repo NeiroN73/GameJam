@@ -7,12 +7,12 @@ public class PlayerAnimator : MonoBehaviour
 {
     public Animator _animator;
 
-    public CakeCatapult _cakeCatapult;
+    public Crossbow _cakeCatapult;
     public Hammer _hammer;
     public InputSystem _inputSystem;
 
     public event Action OnEndAnimHammer;
-    public event Action OnEndAnimCakeThrowed;
+    public event Action OnEndAnimCrossbow;
 
     private void Start()
     {
@@ -24,7 +24,8 @@ public class PlayerAnimator : MonoBehaviour
 
     public void OnAnimThrowCake()
     {
-        //_animator.Play("CakeThrow");
+        _animator.Play("CrossbowShot");
+        _inputSystem.isMoving = false;
     }
 
     public void OnAnimHammerAttack()
@@ -35,14 +36,14 @@ public class PlayerAnimator : MonoBehaviour
 
     public void EndAnimHammer() //animation event
     {
-        
         OnEndAnimHammer?.Invoke();
         _inputSystem.isMoving = true;
     }
 
-    public void EndAnimCakeThrowed()
+    public void EndAnimCrossbow() //anim event
     {
-        //OnEndAnimCakeThrowed?.Invoke();
+        OnEndAnimCrossbow?.Invoke();
+        _inputSystem.isMoving = true;
     }
 
     private void Update()

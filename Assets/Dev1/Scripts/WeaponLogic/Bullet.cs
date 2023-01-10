@@ -10,12 +10,12 @@ public class Bullet : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
 
-        Shoot(direction, dropForce);
+        Shoot(dropForce);
     }
 
-    private void Shoot(Vector3 direction, float dropForce)
+    public void Shoot(float dropForce)
     {
-        _rigidbody.AddForce(direction * dropForce * Time.fixedDeltaTime);
+        _rigidbody.AddForce(transform.forward * dropForce);
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -6,5 +6,7 @@ public abstract class Weapon : MonoBehaviour
 {
     public PlayerAnimator playerAnimator; //later change
 
+    public GameObject CurrentWeaponModel; //change too
+
     public abstract void PlayAnimation();
 }

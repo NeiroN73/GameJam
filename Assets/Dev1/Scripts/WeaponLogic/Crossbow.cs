@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class CakeCatapult : Weapon
+public class Crossbow : Weapon
 {
     [SerializeField] private Bullet _cakePrefab;
     [SerializeField] private Transform _spawnPointCake;
@@ -12,19 +12,19 @@ public class CakeCatapult : Weapon
 
     private void Start()
     {
-        playerAnimator.OnEndAnimCakeThrowed += Attack;
+        playerAnimator.OnEndAnimCrossbow += Attack;
+        //CurrentWeaponModel.SetActive(false);   // fix conflict git, later return it string
     }
 
     public override void PlayAnimation()
     {
-        //Vector3 direction = transform.forward;
-        //Bullet bullet = Instantiate(_cakePrefab, _spawnPointCake.position, Quaternion.identity);
-        //bullet.Initialize(new Vector3(direction.x, _heightDrop, direction.z), _dropForce);
         playerAnimator.OnAnimThrowCake();
     }
 
     public void Attack()
     {
-        print("cakeAttack");
+        Vector3 direction = transform.forward;
+        Bullet bullet = Instantiate(_cakePrefab, _spawnPointCake.position, transform.rotation);
+        bullet.Initialize(new Vector3(direction.x, _heightDrop, direction.z), _dropForce);
     }
 }

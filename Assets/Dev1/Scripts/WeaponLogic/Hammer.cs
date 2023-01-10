@@ -11,6 +11,7 @@ public class Hammer : Weapon
     private void Start()
     {
         playerAnimator.OnEndAnimHammer += Attack;
+        CurrentWeaponModel.SetActive(false);
     }
     public override void PlayAnimation()
     {
@@ -19,15 +20,12 @@ public class Hammer : Weapon
 
     public void Attack()
     {
-        print("hammerAttack");
-
         Collider[] hits = Physics.OverlapSphere(transform.localPosition + transform.forward, 1);
         foreach (var hit in hits)
         {
             if(hit.TryGetComponent(out Enemy enemy))
             {
                 Destroy(enemy.gameObject);
-                print("hit");
             }
         }
     }

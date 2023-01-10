@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "Item")]
-public class DataItem : ScriptableObject
+public class DataItemSO : ScriptableObject
 {
     public ItemType ItemType;
+    public GameObject ItemPrefab;
 }
 
-public enum ItemType { Weapon1, Weapon2 };
+public enum ItemType { Hammer, Crossbow };

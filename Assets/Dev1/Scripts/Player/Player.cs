@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
 
 
         _cinemachineTargetYaw = _cameraTarger.transform.rotation.eulerAngles.y;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void FixedUpdate()

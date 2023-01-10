@@ -2440,11 +2440,12 @@ MonoBehaviour:
   _listDataItemsSO:
   - {fileID: 11400000, guid: 5e0592fbbe2f9754297ec1ba9c2ac47e, type: 2}
   - {fileID: 11400000, guid: cd10643986f38db498473c8b35f36f8c, type: 2}
-  _itemPrefab: {fileID: -6096093447136926641, guid: 0805ca93d787b0241a8d2ff3a454baf8, type: 3}
+  _listItemPrefab:
+  - {fileID: -6096093447136926641, guid: 0805ca93d787b0241a8d2ff3a454baf8, type: 3}
+  - {fileID: 6699100344284050265, guid: 631f015e994a8264ca5b6e5234c39e66, type: 3}
   _listItemSpawnPoints:
   - {fileID: 68927027}
   - {fileID: 1160291692}
-  - {fileID: 1433484308}
 --- !u!1001 &1630521255
 PrefabInstance:
   m_ObjectHideFlags: 0

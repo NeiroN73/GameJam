@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 514178478}
   - component: {fileID: 514178481}
   - component: {fileID: 514178480}
-  - component: {fileID: 514178479}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &514178479
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 514178477}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &79967146070536139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1004,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5655249947712497507}
-  - {fileID: 3991711822856690698}
   - {fileID: 3844236628107289814}
   - {fileID: 6798862884360911892}
   - {fileID: 2300271526064184383}
@@ -1058,6 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 8678370609320409216}
+  CurrentWeaponModel: {fileID: 514178477}
   _listEnemys: []
 --- !u!114 &3991711821505712102
 MonoBehaviour:
@@ -1072,10 +1050,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 8678370609320409216}
-  _cakePrefab: {fileID: -2829190814129361516, guid: 21cd5b9820fa7274ebff3e9aa4c96e52, type: 3}
-  _spawnPointCake: {fileID: 3991711822856690698}
+  CurrentWeaponModel: {fileID: 0}
+  _cakePrefab: {fileID: 252156686844256988, guid: 4bc4141940d2e304b8d299c6b1f7848d, type: 3}
+  _spawnPointCake: {fileID: 0}
   _dropForce: 1000
-  _heightDrop: 1
+  _heightDrop: 10
 --- !u!114 &3991711821505712103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1207,37 +1186,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!1 &3991711822856690699
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3991711822856690698}
-  m_Layer: 0
-  m_Name: BulletSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3991711822856690698
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3991711822856690699}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3991711821505712099}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4035310372782322890
 GameObject:
   m_ObjectHideFlags: 0
