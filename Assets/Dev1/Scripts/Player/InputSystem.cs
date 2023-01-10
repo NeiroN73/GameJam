@@ -21,6 +21,14 @@ public class InputSystem : MonoBehaviour
         return direction;
     }
 
+    public Vector3 GetDirectionMouse()
+    {
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+        Vector2 direction = new Vector2(mouseX, mouseY);
+        return direction;
+    }
+
     private void Update()
     {
         if (isMoving == false)

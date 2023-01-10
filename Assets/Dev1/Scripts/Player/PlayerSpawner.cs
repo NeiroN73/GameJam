@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerSpawner : MonoBehaviour
 {
@@ -16,10 +17,15 @@ public class PlayerSpawner : MonoBehaviour
     {
         Player player = Instantiate(_playerPrefab, _spawnPointPlayer.position, Quaternion.identity);
 
-        CameraMovement camera = Camera.main.GetComponent<CameraMovement>();
-        camera.Initialize(player);
+        //CameraMovement camera = Camera.main.GetComponent<CameraMovement>();
+        //camera.Initialize(player);
 
         UI ui = FindObjectOfType<UI>();
         ui.Initialize(player.GetComponent<PickingMoney>());
+
+        CinemachineVirtualCamera virtCam = FindObjectOfType<CinemachineVirtualCamera>();
+        virtCam.Follow = player.transform.GetChild(0);
+
+        
     }
 }
