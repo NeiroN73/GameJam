@@ -8,7 +8,7 @@ public class EnemySeting : MonoBehaviour
 
     private NavMeshAgent agent;
     private GameObject _player;
-    public Transform target;
+    public Transform pointArray;
 
     private Camera _camera;
 
@@ -21,11 +21,10 @@ public class EnemySeting : MonoBehaviour
 
     private float  _trargetDistance;
     public float agarDistance;
-
     public float time, timer = 15;//таймер
 
-    public bool fear;//страх
-
+    public bool aggressor;//агрессивный
+    public bool blindness;//слепота
 
     private void Awake()
     {
@@ -33,29 +32,36 @@ public class EnemySeting : MonoBehaviour
         time = timer;
         agent = GetComponent<NavMeshAgent>();   
         _scriptRect = GetComponentInChildren<ReactionEnemy>();
-        foreach (Transform Target in target.GetComponentInChildren<Transform>())//добавить в list
+        foreach (Transform Points in pointArray.GetComponentInChildren<Transform>())//добавить в list
         {
-            _point.Add(Target);
+            _point.Add(Points);
         }
-
-    }
-    private void Start()
-    {
         _player = GameObject.FindWithTag("Player");
+    }
+    public void Reaction(GameObject target)
+    {
+       switch (aggressor)
+        {
+            case true:
+                Agar(target);
+                break;
+            case false:
+                Fear();
+                break;
+            default:
+                break;
+        }
+        
     }
 
     private void FixedUpdate()
     {
-        
-        Idle();
+
+        Walking();
     }
 
    //действи при нормально состоянии 
    public void Walking()
-    {
-        
-    }
-    void Idle()
     {
         if (_trargetDistance > 3)
         {
@@ -80,14 +86,17 @@ public class EnemySeting : MonoBehaviour
                     break;
             }
         }
+    }
+    void Fear()
+    {
+       
 
     }
 
-    void Agar()
+    void Agar(GameObject target)
     {
        
             agent.SetDestination(target.transform.position);
-             _scriptRect.Achtung(fear);
     }
 
     public void Dead()
