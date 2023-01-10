@@ -9,9 +9,9 @@ public class StateAmmunition : MonoBehaviour
 
     private EnemySeting _enemy;
 
-    public void Hit(int hit, GameObject player)
+    public void Hit(int hit, GameObject target)
     {
-        _enemy.Dead();
+        _enemy.Reaction(target);
         Health -= hit;
         if(Health<=0)
         {
