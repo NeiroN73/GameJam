@@ -6,13 +6,11 @@ using UnityEngine.AI;
 public class EnemySeting : MonoBehaviour
 {
 
-    private NavMeshAgent agent;
-    private GameObject _player;
+    private NavMeshAgent _agent;
     public Transform pointArray;
 
-    private Camera _camera;
-
-    private ReactionEnemy _scriptRect;
+    private GameObject _player;
+    private Animator _anim;
 
     List<Transform> _point = new List<Transform>();
 
@@ -26,17 +24,18 @@ public class EnemySeting : MonoBehaviour
     public bool aggressor;//агрессивный
     public bool blindness;//слепота
 
+    public bool Trigger;
+
     private void Awake()
     {
-        _camera = Camera.main;
+        _player = GameObject.FindWithTag("Player");
+        _anim = GetComponent<Animator>();
         time = timer;
-        agent = GetComponent<NavMeshAgent>();   
-        _scriptRect = GetComponentInChildren<ReactionEnemy>();
+        _agent = GetComponent<NavMeshAgent>();   
         foreach (Transform Points in pointArray.GetComponentInChildren<Transform>())//добавить в list
         {
             _point.Add(Points);
         }
-        _player = GameObject.FindWithTag("Player");
     }
     public void Reaction(GameObject target)
     {
@@ -56,8 +55,15 @@ public class EnemySeting : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        Walking();
+        _trargetDistance = Vector3.Distance(gameObject.transform.position, _point[_randomTarget].transform.position);
+        if (Trigger)
+        {
+            Walking();
+        }
+        else
+        {
+            Agar(null);
+        }
     }
 
    //действи при нормально состоянии 
@@ -65,7 +71,7 @@ public class EnemySeting : MonoBehaviour
     {
         if (_trargetDistance > 3)
         {
-            agent.SetDestination(_point[_randomTarget].position);
+            _agent.SetDestination(_point[_randomTarget].position);
         }
         else
         {
@@ -89,14 +95,19 @@ public class EnemySeting : MonoBehaviour
     }
     void Fear()
     {
-       
+        _randomTarget = Random.Range(0, _point.Count);
 
     }
 
     void Agar(GameObject target)
     {
-       
-            agent.SetDestination(target.transform.position);
+        Trigger = true;
+        if(target= null)
+        {
+            target = _player;
+        }
+        _agent.SetDestination(target.transform.position);
+        _agent.speed += 2;
     }
 
     public void Dead()
