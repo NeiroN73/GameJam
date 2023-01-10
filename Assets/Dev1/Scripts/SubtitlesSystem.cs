@@ -13,7 +13,8 @@ public class SubtitlesSystem : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(OutputText());
+        _panel.SetActive(false);
+        //StartCoroutine(OutputText());
     }
 
     IEnumerator OutputText()

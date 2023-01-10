@@ -11,6 +11,14 @@ public class Player : MonoBehaviour
     [SerializeField] private int _rotationSpeed;
     [SerializeField] private int _jumpForce;
 
+
+    public float lookSpeed = 2.0f;
+    public float lookXLimit = 60.0f;
+    public Transform playerCameraParent;
+    CharacterController characterController;
+    Vector3 moveDirection = Vector3.zero;
+    Vector2 rotation = Vector2.zero;
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -48,6 +56,7 @@ public class Player : MonoBehaviour
             new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), 1);
 
         if(ground.Length > 1)
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpForce, _rigidbody.velocity.z);
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpForce, _rigidbody.velocity.z); //может быть баг из за разного фпс
+
     }
 }
