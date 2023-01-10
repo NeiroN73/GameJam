@@ -7,8 +7,14 @@ public class InputSystem : MonoBehaviour
 {
     public event Action<Vector3> OnLeftMouseClick;
     public event Action OnSpacePressed;
+
+    public bool isMoving { get; set; } = true;
+
     public Vector3 GetDirectionMove()
     {
+        if (isMoving == false)
+            return Vector3.zero;
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
@@ -17,7 +23,10 @@ public class InputSystem : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (isMoving == false)
+            return;
+
+        if (Input.GetMouseButtonDown(0))
         {
             OnLeftMouseClick?.Invoke(Input.mousePosition);
         }

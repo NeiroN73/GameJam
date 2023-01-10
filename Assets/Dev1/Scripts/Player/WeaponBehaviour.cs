@@ -13,7 +13,7 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void Start()
     {
-        _currentWeapon = GetComponent<CakeCatapult>();
+        _currentWeapon = GetComponent<Hammer>();
 
         _inputSystem = GetComponent<InputSystem>();
         _camera = Camera.main;
@@ -23,7 +23,7 @@ public class WeaponBehaviour : MonoBehaviour
         _weaponDictionary = new()
         {
             { ItemType.Weapon1, GetComponent<CakeCatapult>() },
-            { ItemType.Weapon2, GetComponent<Melee>() },
+            { ItemType.Weapon2, GetComponent<Hammer>() },
         };
     }
 
@@ -31,16 +31,21 @@ public class WeaponBehaviour : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Item item))
         {
-            foreach(KeyValuePair<ItemType, Weapon> weapon in _weaponDictionary)
-            {
-                if(item.Weapon.ItemType == weapon.Key)
-                {
-                    _currentWeapon = weapon.Value;
-                }
-            }
-
-            Destroy(item.gameObject);
+            TakeItem(item);
         }
+    }
+
+    private void TakeItem(Item item)
+    {
+        foreach (KeyValuePair<ItemType, Weapon> weapon in _weaponDictionary)
+        {
+            if (item.Weapon.ItemType == weapon.Key)
+            {
+                _currentWeapon = weapon.Value;
+            }
+        }
+
+        Destroy(item.gameObject);
     }
 
     private void OnAttack(Vector3 mousePosition)
@@ -55,6 +60,6 @@ public class WeaponBehaviour : MonoBehaviour
         //transform.rotation = Quaternion.LookRotation(perpendicular);
         //print(mousePosition);
 
-        _currentWeapon.Attack();
+        _currentWeapon.PlayAnimation();
     }
 }

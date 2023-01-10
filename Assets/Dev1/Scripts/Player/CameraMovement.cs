@@ -9,6 +9,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Vector3 _cameraOffset;
     [SerializeField] private int _cameraMovementSpeed;
 
+
     public void Initialize(Player player)
     {
         _player = player;
@@ -16,7 +17,7 @@ public class CameraMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CameraMove();
+        //CameraMove();
     }
 
     private void CameraMove()
@@ -26,4 +27,7 @@ public class CameraMovement : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, cameraPosition, _cameraMovementSpeed * Time.deltaTime);
     }
+
+
+
 }

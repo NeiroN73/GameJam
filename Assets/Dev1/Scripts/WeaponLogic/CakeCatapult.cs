@@ -10,13 +10,21 @@ public class CakeCatapult : Weapon
     [SerializeField] private float _dropForce;
     [SerializeField] private float _heightDrop;
 
-    public event Action OnThrowCake;
-
-    public override void Attack()
+    private void Start()
     {
-        Vector3 direction = transform.forward;
-        Bullet bullet = Instantiate(_cakePrefab, _spawnPointCake.position, Quaternion.identity);
-        bullet.Initialize(new Vector3(direction.x, _heightDrop, direction.z), _dropForce);
-        OnThrowCake?.Invoke();
+        playerAnimator.OnEndAnimCakeThrowed += Attack;
+    }
+
+    public override void PlayAnimation()
+    {
+        //Vector3 direction = transform.forward;
+        //Bullet bullet = Instantiate(_cakePrefab, _spawnPointCake.position, Quaternion.identity);
+        //bullet.Initialize(new Vector3(direction.x, _heightDrop, direction.z), _dropForce);
+        playerAnimator.OnAnimThrowCake();
+    }
+
+    public void Attack()
+    {
+        print("cakeAttack");
     }
 }
