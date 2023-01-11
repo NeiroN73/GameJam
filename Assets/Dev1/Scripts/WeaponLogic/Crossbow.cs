@@ -13,7 +13,7 @@ public class Crossbow : Weapon
     private void Start()
     {
         playerAnimator.OnEndAnimCrossbow += Attack;
-        //CurrentWeaponModel.SetActive(false);   
+        //CurrentWeaponModel.SetActive(false);   // fix conflict git, later return it string
     }
 
     public override void PlayAnimation()

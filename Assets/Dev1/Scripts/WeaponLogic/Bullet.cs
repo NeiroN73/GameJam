@@ -6,8 +6,6 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody _rigidbody;
 
-    
-
     public void Initialize(Vector3 direction, float dropForce)
     {
         _rigidbody = GetComponent<Rigidbody>();
