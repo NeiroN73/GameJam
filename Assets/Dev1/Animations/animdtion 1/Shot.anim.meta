@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 1904d1396599a66478dff3aa0dcb2517
+=======
+<<<<<<< Updated upstream:Assets/Dev1/Animations/animdtion 1/Сharges.anim.meta
+guid: 5230deef8d8e27344b2388daf7f8fc80
+=======
+guid: 1904d1396599a66478dff3aa0dcb2517
+>>>>>>> Stashed changes:Assets/Dev1/Animations/animdtion 1/Shot.anim.meta
+>>>>>>> Stashed changes
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000
