@@ -43,6 +43,7 @@ public class EnemySeting : MonoBehaviour
        switch (aggressor)
         {
             case true:
+                Trigger = true;
                 Agar(target);
                 break;
             case false:
@@ -115,7 +116,7 @@ public class EnemySeting : MonoBehaviour
         _animator.SetBool("Box", true);
         _animator.SetBool("Idle", false);
         _animator.SetBool("Run", true);
-        Trigger = true;
+        
 
         _agent.SetDestination(target.position);
         _agent.speed = 3.4f;

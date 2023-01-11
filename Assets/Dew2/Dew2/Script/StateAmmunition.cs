@@ -8,6 +8,10 @@ public class StateAmmunition : MonoBehaviour
 
     private EnemySeting _enemy;
 
+    public void Awake()
+    {
+        _enemy = GetComponent<EnemySeting>();
+    }
     public void Hit(int hit, Transform target)
     {
         Health -= hit;

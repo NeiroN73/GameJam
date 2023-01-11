@@ -6,7 +6,7 @@ public class tester : MonoBehaviour
 {
     public StateAmmunition Gm;
     public Transform Gms;
-    private void Awake()
+    private void Start()
     {
 
         Gm.Hit(10, Gms);
