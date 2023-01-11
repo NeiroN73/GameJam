@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Player _player;
+    private Player _player;
 
-    [SerializeField] private Vector3 _cameraOffset;
-    [SerializeField] private int _cameraMovementSpeed;
+    private Vector3 _cameraOffset;
+    private int _cameraMovementSpeed;
 
 
     public void Initialize(Player player)
@@ -15,10 +15,12 @@ public class CameraMovement : MonoBehaviour
         _player = player;
     }
 
+    /*
     private void FixedUpdate()
     {
         //CameraMove();
     }
+    */
 
     private void CameraMove()
     {
@@ -28,6 +30,42 @@ public class CameraMovement : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, cameraPosition, _cameraMovementSpeed * Time.deltaTime);
     }
 
+    public float minimumAngle;
+    public float maximumAngle;
+    public float mouseSensitivity;
+    public bool stickCamera;
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
+    /*
+    void FixedUpdate()
+    {
+        float aimX = Input.GetAxis("Mouse X");
+        float aimY = Input.GetAxis("Mouse Y");
+        _player.transform.rotation *= Quaternion.AngleAxis(aimX * mouseSensitivity, Vector3.up);
+        _player.transform.rotation *= Quaternion.AngleAxis(-aimY * mouseSensitivity, Vector3.right);
+
+
+        var angleX = _player.transform.localEulerAngles.x;
+        if (angleX > 180 && angleX < maximumAngle)
+        {
+            angleX = maximumAngle;
+        }
+        else if (angleX < 180 && angleX > minimumAngle)
+        {
+            angleX = minimumAngle;
+        }
+
+        _player.transform.localEulerAngles = new Vector3(angleX, _player.transform.localEulerAngles.y, 0);
+
+        if (stickCamera)
+        {
+            _player.transform.rotation = Quaternion.Euler(0, _player.transform.rotation.eulerAngles.y, 0);
+        }
+    }
+    */
 
 }

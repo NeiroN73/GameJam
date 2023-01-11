@@ -1,53 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
     private InputSystem _inputSystem;
     private Rigidbody _rigidbody;
+    private CharacterController _controller;
+    private Camera _camera;
+    [SerializeField] private CinemachineVirtualCamera _cinemachine;
 
-    [SerializeField] private int _movementSpeed;
-    [SerializeField] private int _rotationSpeed;
-    [SerializeField] private int _jumpForce;
-
-
-    public float lookSpeed = 2.0f;
-    public float lookXLimit = 60.0f;
-    public Transform playerCameraParent;
-    CharacterController characterController;
-    Vector3 moveDirection = Vector3.zero;
-    Vector2 rotation = Vector2.zero;
+    [SerializeField] private float _movementSpeed;
+    [SerializeField] private float _rotationSpeed;
+    [SerializeField] private float _jumpForce;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _inputSystem = GetComponent<InputSystem>();
+        _controller = GetComponent<CharacterController>();
+        _camera = Camera.main;
 
         _inputSystem.OnSpacePressed += Jump;
+
+
+        _cinemachineTargetYaw = _cameraTarger.transform.rotation.eulerAngles.y;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+
+        //Rotate();
         Move();
-        Rotate();
     }
 
-    private void Move()
+    private void LateUpdate()
     {
-        Vector3 direction = _inputSystem.GetDirectionMove();
-        _rigidbody.velocity += direction * _movementSpeed * Time.deltaTime;
-    }
-
-    private void Rotate()
-    {
-        Vector3 direction = _inputSystem.GetDirectionMove();
-
-        if (direction.x == 0 && direction.z == 0)
-            return;
-
-        transform.rotation = Quaternion.Lerp(
-            transform.rotation, Quaternion.LookRotation(direction), _rotationSpeed * Time.deltaTime);
+        
+        CameraRotation();
     }
 
     private void Jump()
@@ -58,5 +52,60 @@ public class Player : MonoBehaviour
         if(ground.Length > 1)
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpForce, _rigidbody.velocity.z); //может быть баг из за разного фпс
 
+    }
+
+    public float sensitivity;
+    public float _cinemachineTargetYaw;
+    public float _cinemachineTargetPitch;
+    public Transform _cameraTarger;
+
+    public float _rotationVelocity;
+
+    private void CameraRotation()
+    {
+        // if there is an input and camera position is not fixed
+
+        //Don't multiply mouse input by Time.deltaTime;
+        //float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
+
+        Vector2 direction = _inputSystem.GetDirectionMouse();
+        _cinemachineTargetYaw += direction.x * sensitivity;
+        _cinemachineTargetPitch -= direction.y * sensitivity;
+        
+
+        // clamp our rotations so our values are limited 360 degrees
+        _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
+        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, -30, 70);
+
+        // Cinemachine will follow this target
+        _cameraTarger.rotation = Quaternion.Euler(_cinemachineTargetPitch + 0,
+            _cinemachineTargetYaw, 0.0f);
+    }
+
+    private float ClampAngle(float lfAngle, float lfMin, float lfMax)
+    {
+        if (lfAngle < -360f) lfAngle += 360f;
+        if (lfAngle > 360f) lfAngle -= 360f;
+        return Mathf.Clamp(lfAngle, lfMin, lfMax);
+    }
+
+    private void Move()
+    {
+        Vector3 direction = _inputSystem.GetDirectionMove();
+
+        if (direction == Vector3.zero)
+            return;
+
+        float _targetRotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg +
+                                  _camera.transform.eulerAngles.y;
+        float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
+            _rotationSpeed);
+
+        // rotate to face input direction relative to camera position
+        transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+
+        Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+        //_controller.Move(targetDirection * _movementSpeed * Time.deltaTime);
+        _rigidbody.velocity += targetDirection * _movementSpeed * Time.deltaTime;
     }
 }

@@ -6,13 +6,11 @@ using UnityEngine.AI;
 public class EnemySeting : MonoBehaviour
 {
 
-    private NavMeshAgent agent;
+    private NavMeshAgent _agent;
+    public Transform pointArray;
+
     private GameObject _player;
-    public Transform target;
-
-    private Camera _camera;
-
-    private ReactionEnemy _scriptRect;
+    private Animator _anim;
 
     List<Transform> _point = new List<Transform>();
 
@@ -21,45 +19,59 @@ public class EnemySeting : MonoBehaviour
 
     private float  _trargetDistance;
     public float agarDistance;
-
     public float time, timer = 15;//таймер
 
-    public bool fear;//страх
+    public bool aggressor;//агрессивный
+    public bool blindness;//слепота
 
+    public bool Trigger;
 
     private void Awake()
     {
-        _camera = Camera.main;
-        time = timer;
-        agent = GetComponent<NavMeshAgent>();   
-        _scriptRect = GetComponentInChildren<ReactionEnemy>();
-        foreach (Transform Target in target.GetComponentInChildren<Transform>())//добавить в list
-        {
-            _point.Add(Target);
-        }
-
-    }
-    private void Start()
-    {
         _player = GameObject.FindWithTag("Player");
+        _anim = GetComponent<Animator>();
+        time = timer;
+        _agent = GetComponent<NavMeshAgent>();   
+        foreach (Transform Points in pointArray.GetComponentInChildren<Transform>())//добавить в list
+        {
+            _point.Add(Points);
+        }
+    }
+    public void Reaction(GameObject target)
+    {
+       switch (aggressor)
+        {
+            case true:
+                Agar(target);
+                break;
+            case false:
+                Fear();
+                break;
+            default:
+                break;
+        }
+        
     }
 
     private void FixedUpdate()
     {
-        
-        Idle();
+        _trargetDistance = Vector3.Distance(gameObject.transform.position, _point[_randomTarget].transform.position);
+        if (Trigger)
+        {
+            Walking();
+        }
+        else
+        {
+            Agar(null);
+        }
     }
 
    //действи при нормально состоянии 
    public void Walking()
     {
-        
-    }
-    void Idle()
-    {
         if (_trargetDistance > 3)
         {
-            agent.SetDestination(_point[_randomTarget].position);
+            _agent.SetDestination(_point[_randomTarget].position);
         }
         else
         {
@@ -80,14 +92,22 @@ public class EnemySeting : MonoBehaviour
                     break;
             }
         }
+    }
+    void Fear()
+    {
+        _randomTarget = Random.Range(0, _point.Count);
 
     }
 
-    void Agar()
+    void Agar(GameObject target)
     {
-       
-            agent.SetDestination(target.transform.position);
-             _scriptRect.Achtung(fear);
+        Trigger = true;
+        if(target= null)
+        {
+            target = _player;
+        }
+        _agent.SetDestination(target.transform.position);
+        _agent.speed += 2;
     }
 
     public void Dead()
