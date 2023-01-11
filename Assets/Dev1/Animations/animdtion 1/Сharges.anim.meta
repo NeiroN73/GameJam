@@ -1,5 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Dev1/Animations/animdtion 1/Сharges.anim.meta
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream:Assets/Dev1/Animations/animdtion 1/Сharges.anim.meta
 guid: 5230deef8d8e27344b2388daf7f8fc80
@@ -10,11 +9,8 @@ guid: 1904d1396599a66478dff3aa0dcb2517
 guid: 5230deef8d8e27344b2388daf7f8fc80
 >>>>>>> Stashed changes
 NativeFormatImporter:
-=======
-guid: b96b461139eb01149a00967544ae0afb
-PrefabImporter:
->>>>>>> parent of a728e75 (Revert "Какое то обновление"):Assets/Dev1/Prefabs/Clown.prefab.meta
   externalObjects: {}
+  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

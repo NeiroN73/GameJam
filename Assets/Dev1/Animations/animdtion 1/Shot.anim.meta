@@ -1,5 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Dev1/Animations/animdtion 1/Shot.anim.meta
 <<<<<<< Updated upstream
 guid: 1904d1396599a66478dff3aa0dcb2517
 =======
@@ -10,12 +9,8 @@ guid: 1904d1396599a66478dff3aa0dcb2517
 >>>>>>> Stashed changes:Assets/Dev1/Animations/animdtion 1/Shot.anim.meta
 >>>>>>> Stashed changes
 NativeFormatImporter:
-=======
-guid: 3bd8eeca22dfa8c4492ff74fa53eaf0a
-folderAsset: yes
-DefaultImporter:
->>>>>>> parent of a728e75 (Revert "Какое то обновление"):Assets/Model/Monkey/MrMo_A.fbm.meta
   externalObjects: {}
+  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
