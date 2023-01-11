@@ -33,8 +33,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        //Rotate();
         Move();
     }
 
@@ -54,30 +52,26 @@ public class Player : MonoBehaviour
 
     }
 
-    public float sensitivity;
-    public float _cinemachineTargetYaw;
-    public float _cinemachineTargetPitch;
+    [SerializeField] private float _sensitivity;
+    [SerializeField] private float _borderMouseMin;
+    [SerializeField] private float _borderMouseMax;
+
+    private float _cinemachineTargetYaw;
+    private float _cinemachineTargetPitch;
     public Transform _cameraTarger;
 
-    public float _rotationVelocity;
+    private float _rotationVelocity;
 
     private void CameraRotation()
     {
-        // if there is an input and camera position is not fixed
-
-        //Don't multiply mouse input by Time.deltaTime;
-        //float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
-
         Vector2 direction = _inputSystem.GetDirectionMouse();
-        _cinemachineTargetYaw += direction.x * sensitivity;
-        _cinemachineTargetPitch -= direction.y * sensitivity;
+        _cinemachineTargetYaw += direction.x * _sensitivity;
+        _cinemachineTargetPitch -= direction.y * _sensitivity;
         
 
-        // clamp our rotations so our values are limited 360 degrees
         _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
-        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, -30, 70);
+        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, _borderMouseMin, _borderMouseMax);
 
-        // Cinemachine will follow this target
         _cameraTarger.rotation = Quaternion.Euler(_cinemachineTargetPitch + 0,
             _cinemachineTargetYaw, 0.0f);
     }
@@ -101,11 +95,9 @@ public class Player : MonoBehaviour
         float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
             _rotationSpeed);
 
-        // rotate to face input direction relative to camera position
         transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
         Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
-        //_controller.Move(targetDirection * _movementSpeed * Time.deltaTime);
         _rigidbody.velocity += targetDirection * _movementSpeed * Time.deltaTime;
     }
 }
