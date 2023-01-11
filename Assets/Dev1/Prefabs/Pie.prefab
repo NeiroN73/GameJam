@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 539004368071620438}
   - component: {fileID: -1389892019372673378}
   m_Layer: 0
-  m_Name: "\u043F\u0438\u0440\u043E\u0433\u043E\u0433 Variant"
+  m_Name: Pie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 2424213785047400379}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 16.245447, y: 2.4599996, z: 18.037}
-  m_LocalScale: {x: 100, y: 100, z: 9.454577}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 10, y: 10, z: 0.94545776}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2107828310282447524
 MeshFilter:

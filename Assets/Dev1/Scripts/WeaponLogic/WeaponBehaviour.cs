@@ -12,6 +12,8 @@ public class WeaponBehaviour : MonoBehaviour
 
     private Dictionary<ItemType, Weapon> _weaponDictionary;
 
+    private float _rotationVelocity = 0;
+
     private void Start()
     {
         _inputSystem = GetComponent<InputSystem>();
@@ -58,23 +60,22 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void DropItem(Item item)
     {
-        Instantiate(item.DataItemSO.ItemPrefab, new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z), Quaternion.identity);
+        Instantiate(item.DataItemSO.ItemPrefab, new Vector3(transform.position.x, transform.position.y + 5, transform.position.z), Quaternion.identity);
         //item.ThrowUp();
     }
 
     private void OnAttack(Vector3 mousePosition)
     {
-        //Vector3 direction = _camera.ScreenToWorldPoint(mousePosition) - transform.position;
-        //direction = new Vector3(0, direction.y, 0);
-        //transform.LookAt(direction);
-
-        //Vector3 mousePos = _camera.ScreenToWorldPoint(mousePosition);
-        //Vector3 perpendicular = transform.position - mousePos;
-        //perpendicular = new Vector3(0, perpendicular.y, 0);
-        //transform.rotation = Quaternion.LookRotation(perpendicular);
-        //print(mousePosition);
         if (_currentWeapon == null)
             return;
+
+        Vector3 direction = _inputSystem.GetDirectionMouse();
+
+        float _targetRotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg +
+                          _camera.transform.eulerAngles.y;
+        float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, 0);
+
+        transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
         _currentWeapon.PlayAnimation();
     }
