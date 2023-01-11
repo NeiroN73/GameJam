@@ -11,7 +11,7 @@ public class Hammer : Weapon
     private void Start()
     {
         playerAnimator.OnEndAnimHammer += Attack;
-        //CurrentWeaponModel.SetActive(false);
+        CurrentWeaponModel.SetActive(false);
     }
     public override void PlayAnimation()
     {

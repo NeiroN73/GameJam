@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Crossbow
   m_EditorClassIdentifier: 
   ItemType: 1
-  ItemPrefab: {fileID: 4187346492569285007, guid: 40506f4123e3c194aa5696c1544882c1, type: 3}
+  ItemPrefab: {fileID: 2897536728106503539, guid: 631f015e994a8264ca5b6e5234c39e66, type: 3}

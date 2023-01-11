@@ -10,7 +10,7 @@ public class WeaponBehaviour : MonoBehaviour
     private Weapon _currentWeapon;
     private Item _currentItem;
 
-    public Dictionary<ItemType, Weapon> _weaponDictionary;
+    private Dictionary<ItemType, Weapon> _weaponDictionary;
 
     private void Start()
     {
@@ -49,7 +49,6 @@ public class WeaponBehaviour : MonoBehaviour
                 _currentWeapon = weapon.Value;
                 _currentItem = item;
                 _currentWeapon.CurrentWeaponModel.SetActive(true);
-                print("check");
             }
         }
         
