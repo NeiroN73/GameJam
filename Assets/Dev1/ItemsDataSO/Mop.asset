@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mop
   m_EditorClassIdentifier: 
   ItemType: 2
-  ItemPrefab: {fileID: 0}
+  ItemPrefab: {fileID: 5804273404517428411, guid: fc85f9b8c05dfde4ab221b6aadf6c7f5, type: 3}

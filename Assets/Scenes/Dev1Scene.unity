@@ -1942,9 +1942,11 @@ MonoBehaviour:
   _listItemPrefab:
   - {fileID: -6096093447136926641, guid: 0805ca93d787b0241a8d2ff3a454baf8, type: 3}
   - {fileID: 8997676882644985242, guid: 40506f4123e3c194aa5696c1544882c1, type: 3}
+  - {fileID: 4650072914084664330, guid: fc85f9b8c05dfde4ab221b6aadf6c7f5, type: 3}
   _listItemSpawnPoints:
   - {fileID: 68927027}
   - {fileID: 1160291692}
+  - {fileID: 1433484308}
 --- !u!1001 &1630521255
 PrefabInstance:
   m_ObjectHideFlags: 0

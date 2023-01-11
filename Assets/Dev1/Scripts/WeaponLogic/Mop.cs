@@ -6,12 +6,12 @@ public class Mop : Weapon
 {
     private void Start()
     {
-        playerAnimator.OnEndAnimHammer += Attack;
+        playerAnimator.OnEndAnimMop += Attack;
         CurrentWeaponModel.SetActive(false);
     }
     public override void PlayAnimation()
     {
-        playerAnimator.OnAnimHammerAttack();
+        playerAnimator.OnAnimMopAttack();
     }
 
     public void Attack()

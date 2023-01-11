@@ -25,6 +25,7 @@ public class ItemsSpawner : MonoBehaviour
 
             Item item1 = Instantiate(_listItemPrefab[0], _listItemSpawnPoints[0].position, Quaternion.identity);
             Item item2 = Instantiate(_listItemPrefab[1], _listItemSpawnPoints[1].position, Quaternion.identity);
+            Item item3 = Instantiate(_listItemPrefab[2], _listItemSpawnPoints[2].position, Quaternion.identity);
         }
     }
 }
