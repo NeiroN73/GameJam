@@ -6,13 +6,14 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
 
-    public void Initialize(Vector3 direction, float dropForce)
+    private void Start()
     {
-        Shoot(dropForce);
+        _rigidbody.Sleep();
     }
 
     public void Shoot(float dropForce)
     {
+        _rigidbody.WakeUp();
         _rigidbody.AddForce(transform.forward * dropForce);
     }
 

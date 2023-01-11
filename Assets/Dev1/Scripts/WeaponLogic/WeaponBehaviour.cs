@@ -6,6 +6,7 @@ public class WeaponBehaviour : MonoBehaviour
 {
     private InputSystem _inputSystem;
     private Camera _camera;
+    private PlayerAnimator _playerAnimator;
 
     private Weapon _currentWeapon;
     private Item _currentItem;
@@ -18,6 +19,7 @@ public class WeaponBehaviour : MonoBehaviour
     {
         _inputSystem = GetComponent<InputSystem>();
         _camera = Camera.main;
+        _playerAnimator = GetComponent<PlayerAnimator>();
 
         _inputSystem.OnLeftMouseClick += OnAttack;
 
@@ -52,6 +54,7 @@ public class WeaponBehaviour : MonoBehaviour
                 _currentWeapon = weapon.Value;
                 _currentItem = item;
                 _currentWeapon.CurrentWeaponModel.SetActive(true);
+                _playerAnimator.ItemType = _currentItem.DataItemSO.ItemType;
             }
         }
         
@@ -70,11 +73,9 @@ public class WeaponBehaviour : MonoBehaviour
             return;
 
         Vector3 direction = _inputSystem.GetDirectionMouse();
-
         float _targetRotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg +
                           _camera.transform.eulerAngles.y;
         float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, 0);
-
         transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
         _currentWeapon.PlayAnimation();
