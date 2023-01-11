@@ -23,6 +23,7 @@ public class WeaponBehaviour : MonoBehaviour
         {
             { ItemType.Hammer, GetComponent<Hammer>() },
             { ItemType.Crossbow, GetComponent<Crossbow>() },
+            { ItemType.Mop, GetComponent<Mop>() }
         };
     }
 

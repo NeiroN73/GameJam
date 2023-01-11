@@ -13,6 +13,7 @@ public class PlayerAnimator : MonoBehaviour
 
     public event Action OnEndAnimHammer;
     public event Action OnEndAnimCrossbow;
+    public event Action OnEndAnimMop;
 
     private void Start()
     {
@@ -34,6 +35,12 @@ public class PlayerAnimator : MonoBehaviour
         _inputSystem.isMoving = false;
     }
 
+    public void OnAnimMopAttack()
+    {
+        _animator.Play("MopAttack1");
+        _inputSystem.isMoving = false;
+    }
+
     public void EndAnimHammer() //animation event
     {
         OnEndAnimHammer?.Invoke();
@@ -43,6 +50,12 @@ public class PlayerAnimator : MonoBehaviour
     public void EndAnimCrossbow() //anim event
     {
         OnEndAnimCrossbow?.Invoke();
+        _inputSystem.isMoving = true;
+    }
+
+    public void EndAnimMopAttack1()
+    {
+        OnEndAnimMop?.Invoke();
         _inputSystem.isMoving = true;
     }
 

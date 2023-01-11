@@ -9,4 +9,4 @@ public class DataItemSO : ScriptableObject
     public GameObject ItemPrefab;
 }
 
-public enum ItemType { Hammer, Crossbow };
+public enum ItemType { Hammer, Crossbow, Mop };

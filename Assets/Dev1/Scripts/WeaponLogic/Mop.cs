@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class Hammer : Weapon
+public class Mop : Weapon
 {
     private void Start()
     {
@@ -20,16 +19,11 @@ public class Hammer : Weapon
         Collider[] hits = Physics.OverlapSphere(transform.localPosition + transform.forward, 1);
         foreach (var hit in hits)
         {
-            if(hit.TryGetComponent(out Enemy enemy))
+            if (hit.TryGetComponent(out Enemy enemy))
             {
                 Destroy(enemy.gameObject);
             }
         }
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.localPosition + transform.forward, 1);
-    }
 }

@@ -13,7 +13,7 @@ public class Crossbow : Weapon
     private void Start()
     {
         playerAnimator.OnEndAnimCrossbow += Attack;
-        //CurrentWeaponModel.SetActive(false);   // fix conflict git, later return it string
+        CurrentWeaponModel.SetActive(false);   
     }
 
     public override void PlayAnimation()
@@ -24,8 +24,8 @@ public class Crossbow : Weapon
     public void Attack()
     {
         Vector3 direction = transform.forward;
-        //Bullet bullet = Instantiate(_cakePrefab, _spawnPointCake.position, transform.rotation);
-        //bullet.Initialize(new Vector3(direction.x, _heightDrop, direction.z), _dropForce);
+        Bullet bullet = Instantiate(_cakePrefab, _spawnPointCake.position, transform.rotation);
+        bullet.Initialize(new Vector3(direction.x, _heightDrop, direction.z), _dropForce);
         print("attackCrossbow");
     }
 }

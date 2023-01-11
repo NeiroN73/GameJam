@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e2012937352088478a41fb2cd419c3c, type: 3}
-  m_Name: Crossbow
+  m_Name: Mop
   m_EditorClassIdentifier: 
-  ItemType: 1
-  ItemPrefab: {fileID: 4307151456645817512, guid: 40506f4123e3c194aa5696c1544882c1, type: 3}
+  ItemType: 2
+  ItemPrefab: {fileID: 0}
