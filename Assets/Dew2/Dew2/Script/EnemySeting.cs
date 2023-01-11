@@ -7,10 +7,10 @@ public class EnemySeting : MonoBehaviour
 {
 
     private NavMeshAgent _agent;
-    public Transform pointArray;
+    public GameObject pointArray;
 
     private GameObject _player;
-    private Animator _anim;
+    private Animator _animator;
 
     List<Transform> _point = new List<Transform>();
 
@@ -29,7 +29,8 @@ public class EnemySeting : MonoBehaviour
     private void Awake()
     {
         _player = GameObject.FindWithTag("Player");
-        _anim = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
+        pointArray = GameObject.FindWithTag("Points");
         time = timer;
         _agent = GetComponent<NavMeshAgent>();   
         foreach (Transform Points in pointArray.GetComponentInChildren<Transform>())//добавить в list
@@ -37,7 +38,7 @@ public class EnemySeting : MonoBehaviour
             _point.Add(Points);
         }
     }
-    public void Reaction(GameObject target)
+    public void Reaction(Transform target)
     {
        switch (aggressor)
         {
@@ -56,22 +57,25 @@ public class EnemySeting : MonoBehaviour
     private void FixedUpdate()
     {
         _trargetDistance = Vector3.Distance(gameObject.transform.position, _point[_randomTarget].transform.position);
-        if (Trigger)
+        if (!Trigger)
         {
             Walking();
+            _agent.speed = 3;
         }
         else
         {
-            Agar(null);
+            Agar(_player.transform);
         }
     }
 
    //действи при нормально состоянии 
    public void Walking()
     {
-        if (_trargetDistance > 3)
+        if (_trargetDistance > 2)
         {
             _agent.SetDestination(_point[_randomTarget].position);
+            _animator.SetBool("Idle", false);
+            _animator.SetBool("Run", true);
         }
         else
         {
@@ -86,8 +90,15 @@ public class EnemySeting : MonoBehaviour
                     if (time <= 1)
                     {
                         _randomTarget = Random.Range(0, _point.Count);
+                        _animator.SetBool("Idle", false);
+                        _animator.SetBool("Run", true);
                         time = timer;
 
+                    }
+                    else
+                    {
+                        _animator.SetBool("Idle",true);
+                        _animator.SetBool("Run", false);
                     }
                     break;
             }
@@ -99,15 +110,15 @@ public class EnemySeting : MonoBehaviour
 
     }
 
-    void Agar(GameObject target)
+    public void Agar(Transform target)
     {
+        _animator.SetBool("Box", true);
+        _animator.SetBool("Idle", false);
+        _animator.SetBool("Run", true);
         Trigger = true;
-        if(target= null)
-        {
-            target = _player;
-        }
-        _agent.SetDestination(target.transform.position);
-        _agent.speed += 2;
+
+        _agent.SetDestination(target.position);
+        _agent.speed = 3.4f;
     }
 
     public void Dead()
