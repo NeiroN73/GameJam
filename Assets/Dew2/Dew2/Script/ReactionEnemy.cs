@@ -53,10 +53,7 @@ public class ReactionEnemy : MonoBehaviour
                 break;
             case false:
             barKey.SetActive(false);
-                break;
-            default:
-            barKey.SetActive(false);
-                break;
+                break; 
         }
         transform.LookAt(_camera.transform.position);
     }

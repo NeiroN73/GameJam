@@ -61,7 +61,7 @@ public class EnemySeting : MonoBehaviour
         if (!Trigger)
         {
             Walking();
-            _agent.speed = 3;
+            _agent.speed = 2.5f;
         }
         else
         {
