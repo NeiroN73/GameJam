@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 public class ItemsSpawner : MonoBehaviour
 {
     [SerializeField] private List<DataItemSO> _listDataItemsSO;
-
     [SerializeField] private List<Item> _listItemPrefab;
     [SerializeField] private List<Transform> _listItemSpawnPoints;
 
@@ -23,8 +22,11 @@ public class ItemsSpawner : MonoBehaviour
             //item.Initialize(_listDataItemsSO);
             await Task.Yield();
 
-            Item item1 = Instantiate(_listItemPrefab[0], _listItemSpawnPoints[0].position, Quaternion.identity);
-            Item item2 = Instantiate(_listItemPrefab[1], _listItemSpawnPoints[1].position, Quaternion.identity);
+            //Item item1 = Instantiate(_listItemPrefab[0], _listItemSpawnPoints[0].position, Quaternion.identity);
+            //Item item2 = Instantiate(_listItemPrefab[1], _listItemSpawnPoints[1].position, Quaternion.identity);
         }
+
+        Item item1 = Instantiate(_listItemPrefab[0], _listItemSpawnPoints[0].position, Quaternion.identity);
+        Item item2 = Instantiate(_listItemPrefab[1], _listItemSpawnPoints[1].position, Quaternion.identity);
     }
 }

@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DataItemSO: {fileID: 11400000, guid: 5e0592fbbe2f9754297ec1ba9c2ac47e, type: 2}
+  _rigidbody: {fileID: 2953293666983132709}
 --- !u!65 &912613452598953253
 BoxCollider:
   m_ObjectHideFlags: 0
