@@ -24,13 +24,13 @@ public class PlayerAnimator : MonoBehaviour
 
     public void OnAnimThrowCake()
     {
-        _animator.Play("CrossbowShot");
+        _animator.Play("IdleCrossbow");
         _inputSystem.isMoving = false;
     }
 
     public void OnAnimHammerAttack()
     {
-        _animator.Play("HammerAttack");
+        _animator.Play("AttackHammer");
         _inputSystem.isMoving = false;
     }
 

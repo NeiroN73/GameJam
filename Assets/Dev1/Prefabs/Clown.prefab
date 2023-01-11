@@ -981,11 +981,10 @@ MonoBehaviour:
   _movementSpeed: 30
   _rotationSpeed: 0.3
   _jumpForce: 10
-  sensitivity: 5.34
-  _cinemachineTargetYaw: 2.51
-  _cinemachineTargetPitch: 2.91
+  _sensitivity: 5
+  _borderMouseMin: -30
+  _borderMouseMax: 70
   _cameraTarger: {fileID: 4874388180795159927}
-  _rotationVelocity: 0
 --- !u!114 &4232078686096465405
 MonoBehaviour:
   m_ObjectHideFlags: 0

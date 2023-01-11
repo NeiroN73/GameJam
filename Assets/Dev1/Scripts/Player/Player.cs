@@ -54,12 +54,14 @@ public class Player : MonoBehaviour
 
     }
 
-    public float sensitivity;
-    public float _cinemachineTargetYaw;
-    public float _cinemachineTargetPitch;
-    public Transform _cameraTarger;
+    [SerializeField] private float _sensitivity;
+    [SerializeField] private float _borderMouseMin;
+    [SerializeField] private float _borderMouseMax;
+    private float _cinemachineTargetYaw;
+    private float _cinemachineTargetPitch;
+    [SerializeField] private Transform _cameraTarger;
 
-    public float _rotationVelocity;
+    private float _rotationVelocity;
 
     private void CameraRotation()
     {
@@ -69,13 +71,13 @@ public class Player : MonoBehaviour
         //float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
         Vector2 direction = _inputSystem.GetDirectionMouse();
-        _cinemachineTargetYaw += direction.x * sensitivity;
-        _cinemachineTargetPitch -= direction.y * sensitivity;
+        _cinemachineTargetYaw += direction.x * _sensitivity;
+        _cinemachineTargetPitch -= direction.y * _sensitivity;
         
 
         // clamp our rotations so our values are limited 360 degrees
         _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
-        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, -30, 70);
+        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, _borderMouseMin, _borderMouseMax);
 
         // Cinemachine will follow this target
         _cameraTarger.rotation = Quaternion.Euler(_cinemachineTargetPitch + 0,
