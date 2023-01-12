@@ -10,6 +10,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private float _textSpeed;
 
     public bool _checkContinuePressButton;
+    public bool _checkKeyEPress = true;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator OutputText(List<string> dialogueText)
     {
+        _checkKeyEPress = true;
         _tmpro.text = "";
         _dialoguePanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -44,6 +46,7 @@ public class DialogueSystem : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _dialoguePanel.SetActive(false);
+        _checkKeyEPress = false;
     }
 
     public void ButtonDownNextPhrase()

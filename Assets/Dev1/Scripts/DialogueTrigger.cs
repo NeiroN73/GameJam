@@ -33,7 +33,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (_checkTrigger)
+        if (_checkTrigger && _dialogueSystem._checkKeyEPress == false)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {

@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Dev1/Dev1Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Dew2/Dew2/TesterScene.unity
     guid: 7147c5ffad38b104690d566d8f3001f9
   m_configObjects: {}

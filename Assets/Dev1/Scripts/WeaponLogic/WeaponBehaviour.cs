@@ -10,6 +10,7 @@ public class WeaponBehaviour : MonoBehaviour
 
     private Weapon _currentWeapon;
     private Item _currentItem;
+    private Item _itemTrigger;
 
     private Dictionary<ItemType, Weapon> _weaponDictionary;
 
@@ -39,9 +40,8 @@ public class WeaponBehaviour : MonoBehaviour
         if (other.TryGetComponent(out Item item))
         {
             _reactionEnemy.Sight(true);
-            print("enter");
             _isItemTrigger = true;
-            TakeItem(item);
+            _itemTrigger = item;
         }
     }
 
@@ -50,9 +50,8 @@ public class WeaponBehaviour : MonoBehaviour
         if (other.TryGetComponent(out Item item))
         {
             _reactionEnemy.Sight(false);
-            print("exit");
             _isItemTrigger = false;
-            TakeItem(item);
+            _itemTrigger = null;
         }
     }
 
@@ -60,8 +59,8 @@ public class WeaponBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (_isItemTrigger == false)
-                return;
+            if (_itemTrigger)
+                TakeItem(_itemTrigger);
         }
     }
 
