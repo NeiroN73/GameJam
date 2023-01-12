@@ -16,13 +16,15 @@ public class ReactionEnemy : MonoBehaviour
     {
         _player = GameObject.FindWithTag("Player");
         _camera = Camera.main;
-        
+        Sight(false);
+
+
     }
     private void Update()
     {
         transform.LookAt(_camera.transform.position);
-        
-        
+
+
     }
     /*private void OnTriggerEnter(Collider other)
     {
