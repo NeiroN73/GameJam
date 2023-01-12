@@ -9,6 +9,7 @@ TagManager:
   - Item
   - Points
   - Wepons
+  - before
   layers:
   - Default
   - TransparentFX

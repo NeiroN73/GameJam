@@ -20,16 +20,23 @@ public class ReactionEnemy : MonoBehaviour
     }
     private void Update()
     {
-        _distance = Vector3.Distance(gameObject.transform.position, _player.transform.position);
-          if (_distance <= 4)
+        transform.LookAt(_camera.transform.position);
+        
+        
+    }
+    /*private void OnTriggerEnter(Collider other)
+    {
+        if(gameother.tag == "before")
         {
-           Sight(true);
+            Sight(true);
         }
-          else
+    }iggerExit(Collider other)
+    {
+        if (other.tag == "before")
         {
             Sight(false);
         }
-    }
+    }*/
     public void Achtung( bool fear)
     {
         switch (fear)
@@ -55,6 +62,6 @@ public class ReactionEnemy : MonoBehaviour
             barKey.SetActive(false);
                 break; 
         }
-        transform.LookAt(_camera.transform.position);
+        
     }
 }
