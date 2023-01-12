@@ -9,7 +9,13 @@ public class tester : MonoBehaviour
     private void Start()
     {
 
+        StartCoroutine(SpawnSkeleton());
+    }
+    public IEnumerator SpawnSkeleton()
+    {
         Gm.Hit(10, Gms);
+        yield return new WaitForSeconds(3f);
+        
     }
 }
     
