@@ -442,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2511577013168464169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.93, z: -0.03}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -474,14 +474,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2531551381426796336}
-  m_LocalRotation: {x: 0.4629708, y: -0.1583304, z: 0.03090316, w: -0.8715701}
+  m_LocalRotation: {x: 0.59436727, y: -0.53293884, z: 0.45528182, w: -0.39423642}
   m_LocalPosition: {x: -0.0035, y: 0.003, z: -0.0058}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6486303073709665461}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 232.867, y: 210.304, z: 520.604}
+  m_LocalEulerAnglesHint: {x: 179.047, y: 285.94, z: 443.043}
 --- !u!33 &6598965714823015062
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cinemachine: {fileID: 0}
-  _movementSpeed: 51.3
+  _movementSpeed: 30
   _rotationSpeed: 0.3
   _jumpForce: 10
   _sensitivity: 5
@@ -1151,7 +1151,7 @@ Animator:
   m_GameObject: {fileID: 4232078686096465400}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 55a9023a834c88e4f899ac4a79ea0bba, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9e97fffd3fc4000499c64e6a64403db8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1170,7 +1170,7 @@ Rigidbody:
   m_GameObject: {fileID: 4232078686096465400}
   serializedVersion: 4
   m_Mass: 100
-  m_Drag: 8.61
+  m_Drag: 2.45
   m_AngularDrag: 4.32
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1522,8 +1522,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5437514996390652139}
-  m_LocalRotation: {x: -0.39897904, y: 0.85990536, z: -0.23631142, w: 0.21339037}
-  m_LocalPosition: {x: 0.004, y: 0.0071, z: -0.0023}
+  m_LocalRotation: {x: -0.54659176, y: 0.7745056, z: -0.27072054, w: 0.1675975}
+  m_LocalPosition: {x: 0.0083, y: 0.0188, z: -0.0028}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1534,7 +1534,7 @@ Transform:
   - {fileID: 3430352616760498470}
   m_Father: {fileID: 6486303073709665461}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -553.659, y: 325.129, z: 125.910995}
+  m_LocalEulerAnglesHint: {x: -553.659, y: 325.129, z: 105.269}
 --- !u!95 &7859941350946230064
 Animator:
   serializedVersion: 5

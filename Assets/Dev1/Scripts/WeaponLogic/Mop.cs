@@ -16,7 +16,7 @@ public class Mop : Weapon
 
     public void Attack()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.localPosition + transform.forward, 1);
+        Collider[] hits = Physics.OverlapSphere(transform.localPosition + transform.forward, 2);
         foreach (var hit in hits)
         {
             if (hit.TryGetComponent(out Enemy enemy))
@@ -24,6 +24,12 @@ public class Mop : Weapon
                 Destroy(enemy.gameObject);
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.localPosition + transform.forward, 2);
     }
 
 }
