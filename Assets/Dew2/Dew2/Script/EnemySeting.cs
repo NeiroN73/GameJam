@@ -9,8 +9,9 @@ public class EnemySeting : MonoBehaviour
     private NavMeshAgent _agent;
     public GameObject pointArray;
 
-    private GameObject _player;
+    public GameObject _player { private get; set; }
     private Animator _animator;
+    private GameObject _pie;
 
     List<Transform> _point = new List<Transform>();
 
@@ -38,13 +39,13 @@ public class EnemySeting : MonoBehaviour
             _point.Add(Points);
         }
     }
-    public void Reaction(Transform target)
+    public void Reaction()
     {
        switch (aggressor)
         {
             case true:
                 Trigger = true;
-                Agar(target);
+                Agar(_player.transform);
                 break;
             case false:
                 Fear();
@@ -57,22 +58,24 @@ public class EnemySeting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _trargetDistance = Vector3.Distance(gameObject.transform.position, _point[_randomTarget].transform.position);
+        
+        
         if (!Trigger)
         {
+            _trargetDistance = Vector3.Distance(gameObject.transform.position, _point[_randomTarget].transform.position);
             Walking();
-            _agent.speed = 2.5f;
         }
         else
         {
-            Agar(_player.transform);
+            _trargetDistance = Vector3.Distance(gameObject.transform.position, _player.transform.position);
+            Reaction();
         }
     }
 
    //действи при нормально состоянии 
    public void Walking()
     {
-        if (_trargetDistance > 2)
+        if (_trargetDistance > _agent.stoppingDistance)
         {
             _agent.SetDestination(_point[_randomTarget].position);
             _animator.SetBool("Idle", false);
@@ -107,19 +110,39 @@ public class EnemySeting : MonoBehaviour
     }
     void Fear()
     {
-        _randomTarget = Random.Range(0, _point.Count);
-
+        
+        if (_trargetDistance > _agent.stoppingDistance)
+        {
+            _agent.SetDestination(_point[_randomTarget].position);
+            _animator.SetBool("Idle", false);
+            _animator.SetBool("Run", true);
+            
+        }
+        else 
+        {
+            _randomTarget = Random.Range(0, _point.Count);
+        }
     }
 
     public void Agar(Transform target)
     {
         _animator.SetBool("Box", true);
-        _animator.SetBool("Idle", false);
-        _animator.SetBool("Run", true);
-        
 
-        _agent.SetDestination(target.position);
-        _agent.speed = 3.4f;
+        if (_trargetDistance <= _agent.stoppingDistance)
+        {
+            _animator.SetBool("Idle", true);
+            _animator.SetBool("Run", false);
+
+        }
+        else
+        {
+            
+            _animator.SetBool("Idle", false);
+            _animator.SetBool("Run", true);
+            _agent.SetDestination(target.position);
+            _agent.speed = 3.4f;
+        }
+        transform.LookAt(target.transform.position);
     }
 
     public void Dead()

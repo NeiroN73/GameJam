@@ -5,7 +5,7 @@ using UnityEngine;
 public class tester : MonoBehaviour
 {
     public StateAmmunition Gm;
-    public Transform Gms;
+    public GameObject Gms;
     private void Start()
     {
 

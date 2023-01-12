@@ -1944,8 +1944,8 @@ RectTransform:
   - {fileID: 4371016796422529903}
   - {fileID: 4371016796250384739}
   - {fileID: 230906801}
-  - {fileID: 5996648577660192590}
   - {fileID: 995297700}
+  - {fileID: 5996648577660192590}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

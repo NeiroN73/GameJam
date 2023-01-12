@@ -12,10 +12,12 @@ public class StateAmmunition : MonoBehaviour
     {
         _enemy = GetComponent<EnemySeting>();
     }
-    public void Hit(int hit, Transform target)
+    public void Hit(int hit, GameObject target)
     {
+       
         Health -= hit;
-        _enemy.Reaction(target);
+        _enemy.Reaction();
+        _enemy._player = target;
         if(Health<=0)
         {
             _enemy.Dead();
