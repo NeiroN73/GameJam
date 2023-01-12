@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
     public GameObject setings;
     public GameObject menus;
+   
 
     public float timer;
     public bool ispuse; 
@@ -18,6 +20,7 @@ public class Menu : MonoBehaviour
 
     void Update()
     {
+      
         //Time.timeScale = timer; 
         if (Input.GetKeyDown(KeyCode.Escape) && ispuse == false) 
         { 
@@ -58,11 +61,11 @@ public class Menu : MonoBehaviour
     }
     public void Restart()
     {
-
+        SceneManager.LoadScene(1);
     }
     public void Exed()
     {
-
+        Application.Quit();
     }
 
 }
