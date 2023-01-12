@@ -84,7 +84,6 @@ public class PlayerAnimator : MonoBehaviour
                     _animator.Play("isMoving");
                     break;
             }
-            
         }
         else
         {
