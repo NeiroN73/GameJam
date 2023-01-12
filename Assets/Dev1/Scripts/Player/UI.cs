@@ -6,10 +6,11 @@ using TMPro;
 public class UI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _tmproGO;
+    [SerializeField] private PickingMoney pickingMoney;
 
     private int _amountCoins;
 
-    public void Initialize(PickingMoney pickingMoney)
+    public void Start()
     {
         pickingMoney.OnPickingCoin += UpdateCoinsUI;
     }

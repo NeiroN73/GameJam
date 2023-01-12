@@ -10,7 +10,7 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnPlayer();
+        //SpawnPlayer();
     }
 
     private void SpawnPlayer()
@@ -21,11 +21,10 @@ public class PlayerSpawner : MonoBehaviour
         //camera.Initialize(player);
 
         UI ui = FindObjectOfType<UI>();
-        ui.Initialize(player.GetComponent<PickingMoney>());
 
         CinemachineVirtualCamera virtCam = FindObjectOfType<CinemachineVirtualCamera>();
         virtCam.Follow = player.transform.GetChild(0);
 
-        
+        DialogueSystem dialogueSystem = FindObjectOfType<DialogueSystem>();
     }
 }
