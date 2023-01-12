@@ -20933,27 +20933,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2083589151778842130, guid: 8835c32a9d7112a46a0afb6755a68839, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2083589151778842130, guid: 8835c32a9d7112a46a0afb6755a68839, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2083589151778842130, guid: 8835c32a9d7112a46a0afb6755a68839, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1478967033}
     - target: {fileID: 2083589151778842130, guid: 8835c32a9d7112a46a0afb6755a68839, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeValue
+      value: Colsed
       objectReference: {fileID: 0}
     - target: {fileID: 2083589151778842130, guid: 8835c32a9d7112a46a0afb6755a68839, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ChangeAudio, Assembly-CSharp
+      value: Menu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2083589151778842130, guid: 8835c32a9d7112a46a0afb6755a68839, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.UI.Slider, UnityEngine.UI
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3937613415025122555, guid: 8835c32a9d7112a46a0afb6755a68839, type: 3}
       propertyPath: m_IsActive
