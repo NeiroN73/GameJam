@@ -10,7 +10,6 @@ public class InputSystem : MonoBehaviour
     public event Action OnKeyEPressed;
 
     public bool isMoving { get; set; } = true;
-    public bool isBlockingKeyE { get; set; } = false;
 
     public Vector3 GetDirectionMove()
     {
@@ -41,12 +40,9 @@ public class InputSystem : MonoBehaviour
             OnLeftMouseClick?.Invoke(Input.mousePosition);
         }
 
-        if(isBlockingKeyE == false)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown("E"))
-            {
-                OnKeyEPressed?.Invoke();
-            }
+            OnKeyEPressed?.Invoke();
         }
     }
 }

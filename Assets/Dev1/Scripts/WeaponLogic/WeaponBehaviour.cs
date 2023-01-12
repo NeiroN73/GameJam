@@ -34,21 +34,14 @@ public class WeaponBehaviour : MonoBehaviour
         _reactionEnemy.Sight(false);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent(out Item item))
-        {
-            TakeItem(item);
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Item item))
         {
             _reactionEnemy.Sight(true);
             print("enter");
-            _inputSystem.isBlockingKeyE = false;
+            _isItemTrigger = true;
+            TakeItem(item);
         }
     }
 
@@ -58,7 +51,17 @@ public class WeaponBehaviour : MonoBehaviour
         {
             _reactionEnemy.Sight(false);
             print("exit");
-            _inputSystem.isBlockingKeyE = true;
+            _isItemTrigger = false;
+            TakeItem(item);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (_isItemTrigger == false)
+                return;
         }
     }
 
