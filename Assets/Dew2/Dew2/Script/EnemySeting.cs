@@ -181,7 +181,10 @@ public class EnemySeting : MonoBehaviour
             _agent.SetDestination(random_point);
         }
     }
+    public void Hits()
+    {
 
+    }
     public void Dead()
     {
 
