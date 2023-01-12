@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChangeAudio : MonoBehaviour
 {
     public AudioMixer aMixerAudio;
-    public string volumeParametr = "MasterVoluem";//MusicBild
+    public string volumeParametr = "MusicBild";//MusicBild
     public const float _multiplier = 20;
     public Slider slider;
 
