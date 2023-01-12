@@ -25,19 +25,19 @@ public class PlayerAnimator : MonoBehaviour
 
     public void OnAnimThrowCake()
     {
-        _animator.Play("IdleCrossbow");
+        _animator.SetTrigger("isCrossbowAttack");
         _inputSystem.isMoving = false;
     }
 
     public void OnAnimHammerAttack()
     {
-        _animator.Play("AttackHammer");
+        _animator.SetTrigger("isHammerAttack");
         _inputSystem.isMoving = false;
     }
 
     public void OnAnimMopAttack()
     {
-        _animator.Play("MopAttack1");
+        _animator.SetTrigger("isMopAttack");
         _inputSystem.isMoving = false;
     }
 
@@ -53,7 +53,7 @@ public class PlayerAnimator : MonoBehaviour
         _inputSystem.isMoving = true;
     }
 
-    public void EndAnimMopAttack1()
+    public void EndAnimMopAttack1() //anim event
     {
         OnEndAnimMop?.Invoke();
         _inputSystem.isMoving = true;

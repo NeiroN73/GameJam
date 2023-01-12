@@ -20,6 +20,7 @@ public class ReactionEnemy : MonoBehaviour
 
 
     }
+    
     private void Update()
     {
         transform.LookAt(_camera.transform.position);
@@ -40,6 +41,7 @@ public class ReactionEnemy : MonoBehaviour
             Sight(false);
         }
     }
+    
     public void Achtung( bool fear)
     {
         switch (fear)

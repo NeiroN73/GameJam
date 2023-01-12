@@ -7,8 +7,10 @@ public class InputSystem : MonoBehaviour
 {
     public event Action<Vector3> OnLeftMouseClick;
     public event Action OnSpacePressed;
+    public event Action OnKeyEPressed;
 
     public bool isMoving { get; set; } = true;
+    public bool isBlockingKeyE { get; set; } = false;
 
     public Vector3 GetDirectionMove()
     {
@@ -39,9 +41,12 @@ public class InputSystem : MonoBehaviour
             OnLeftMouseClick?.Invoke(Input.mousePosition);
         }
 
-        if(Input.GetButtonDown("Jump"))
+        if(isBlockingKeyE == false)
         {
-            OnSpacePressed?.Invoke();
+            if (Input.GetKeyDown("E"))
+            {
+                OnKeyEPressed?.Invoke();
+            }
         }
     }
 }

@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 1153119939374367125}
   - component: {fileID: 8997676882644985242}
   - component: {fileID: 7816742239927896405}
+  - component: {fileID: -4396360212530056049}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Untagged
@@ -418,7 +419,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4307151456645817512}
-  m_LocalRotation: {x: -0.06121782, y: 0.71677303, z: -0.063435815, w: 0.6917114}
+  m_LocalRotation: {x: -0.061218068, y: 0.7167725, z: -0.06343628, w: 0.6917119}
   m_LocalPosition: {x: 9.7, y: 4.533, z: 16.43}
   m_LocalScale: {x: 0.37552986, y: 0.37552986, z: 0.37552986}
   m_ConstrainProportionsScale: 0
@@ -428,7 +429,7 @@ Transform:
   - {fileID: 7260576663584800634}
   - {fileID: 1224009696648103234}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0.358, y: 92.007, z: -10.109}
 --- !u!95 &2136926662831014771
 Animator:
@@ -512,6 +513,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.7751498, y: 1.0053359, z: 3.7364628}
   m_Center: {x: 0.00796354, y: 0.37554827, z: -0.020427769}
+--- !u!135 &-4396360212530056049
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307151456645817512}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 6.31
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4362608358367243165
 GameObject:
   m_ObjectHideFlags: 0
