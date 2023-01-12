@@ -995,13 +995,13 @@ GameObject:
   - component: {fileID: 4232078686096465404}
   - component: {fileID: 4232078686096465405}
   - component: {fileID: 8480825595022862996}
+  - component: {fileID: 1904614507163349524}
   - component: {fileID: 3458233674569570329}
   - component: {fileID: 8868560031990843335}
   - component: {fileID: 4766199408290815846}
-  - component: {fileID: 1904614507163349524}
   m_Layer: 0
   m_Name: Clown
-  m_TagString: Untagged
+  m_TagString: Before
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cinemachine: {fileID: 0}
-  _movementSpeed: 30
+  _movementSpeed: 60
   _rotationSpeed: 0.3
   _jumpForce: 10
   _sensitivity: 5
@@ -1143,6 +1143,19 @@ MonoBehaviour:
   _cakeCatapult: {fileID: 4232078686096465394}
   _hammer: {fileID: 4232078686096465393}
   _inputSystem: {fileID: 4232078686096465392}
+--- !u!114 &1904614507163349524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4232078686096465400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67145695096c97e43976aede60510b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textSpeed: 0.1
 --- !u!95 &3458233674569570329
 Animator:
   serializedVersion: 5
@@ -1172,7 +1185,7 @@ Rigidbody:
   m_GameObject: {fileID: 4232078686096465400}
   serializedVersion: 4
   m_Mass: 100
-  m_Drag: 2.45
+  m_Drag: 7.44
   m_AngularDrag: 4.32
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1213,19 +1226,6 @@ CapsuleCollider:
   m_Height: 1.9426124
   m_Direction: 1
   m_Center: {x: 0, y: 0.019565701, z: 0}
---- !u!114 &1904614507163349524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4232078686096465400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67145695096c97e43976aede60510b7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _textSpeed: 1
 --- !u!1 &4321174740616057839
 GameObject:
   m_ObjectHideFlags: 0

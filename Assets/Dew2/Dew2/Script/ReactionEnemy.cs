@@ -20,25 +20,28 @@ public class ReactionEnemy : MonoBehaviour
 
 
     }
+    
     private void Update()
     {
         transform.LookAt(_camera.transform.position);
 
 
     }
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(gameother.tag == "before")
+        if(other.tag == "before")
         {
             Sight(true);
         }
-    }iggerExit(Collider other)
+    }
+    private void OnTriggerExit(Collider other)
     {
         if (other.tag == "before")
         {
             Sight(false);
         }
-    }*/
+    }
+    
     public void Achtung( bool fear)
     {
         switch (fear)

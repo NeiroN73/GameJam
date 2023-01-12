@@ -6,6 +6,7 @@ public class WeaponBehaviour : MonoBehaviour
 {
     private InputSystem _inputSystem;
     private Camera _camera;
+    [SerializeField] private ReactionEnemy _reactionEnemy;
 
     private Weapon _currentWeapon;
     private Item _currentItem;
@@ -13,6 +14,8 @@ public class WeaponBehaviour : MonoBehaviour
     private Dictionary<ItemType, Weapon> _weaponDictionary;
 
     private float _rotationVelocity = 0;
+
+    private bool _isItemTrigger;
 
     private void Start()
     {
@@ -27,13 +30,38 @@ public class WeaponBehaviour : MonoBehaviour
             { ItemType.Crossbow, GetComponent<Crossbow>() },
             { ItemType.Mop, GetComponent<Mop>() }
         };
+
+        _reactionEnemy.Sight(false);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.TryGetComponent(out Item item))
+        if (other.TryGetComponent(out Item item))
         {
+            _reactionEnemy.Sight(true);
+            print("enter");
+            _isItemTrigger = true;
             TakeItem(item);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Item item))
+        {
+            _reactionEnemy.Sight(false);
+            print("exit");
+            _isItemTrigger = false;
+            TakeItem(item);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (_isItemTrigger == false)
+                return;
         }
     }
 
@@ -70,11 +98,9 @@ public class WeaponBehaviour : MonoBehaviour
             return;
 
         Vector3 direction = _inputSystem.GetDirectionMouse();
-
         float _targetRotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg +
                           _camera.transform.eulerAngles.y;
         float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, 0);
-
         transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
         _currentWeapon.PlayAnimation();
