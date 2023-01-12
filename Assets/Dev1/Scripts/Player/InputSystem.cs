@@ -39,11 +39,6 @@ public class InputSystem : MonoBehaviour
         {
             OnLeftMouseClick?.Invoke(Input.mousePosition);
         }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            OnKeyEPressed?.Invoke();
-        }
     }
 }
 

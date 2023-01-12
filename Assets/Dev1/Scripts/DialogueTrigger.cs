@@ -8,6 +8,8 @@ public class DialogueTrigger : MonoBehaviour
 
     [SerializeField] private List<string> _dialogueText;
 
+    private bool _checkTrigger;
+
     private void Start()
     {
         _dialogueSystem = FindObjectOfType<DialogueSystem>();
@@ -17,7 +19,27 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(other.TryGetComponent(out Player player))
         {
-            _dialogueSystem.StartDialogue(_dialogueText);
+            _checkTrigger = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Player player))
+        {
+            _checkTrigger = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (_checkTrigger)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _dialogueSystem.StopAllCoroutines();
+                _dialogueSystem.StartDialogue(_dialogueText);
+            }
         }
     }
 }

@@ -5,10 +5,16 @@ using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
-    private TextMeshProUGUI _tmpro;
+    [SerializeField] private GameObject _dialoguePanel;
+    [SerializeField] private TextMeshProUGUI _tmpro;
     [SerializeField] private float _textSpeed;
 
-    private bool check;
+    public bool _checkContinuePressButton;
+
+    private void Start()
+    {
+        _dialoguePanel.SetActive(false);
+    }
 
     public void StartDialogue(List<string> dialogueText)
     {
@@ -17,26 +23,31 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator OutputText(List<string> dialogueText)
     {
+        _tmpro.text = "";
+        _dialoguePanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         foreach (string phrase in dialogueText)
         {
             foreach (char symbol in phrase)
             {
-                //_tmpro.text += symbol.ToString();
-                print(symbol.ToString());
+                _tmpro.text += symbol.ToString();
                 yield return new WaitForSeconds(_textSpeed);
             }
 
-            yield return new WaitUntil(() => check == true);
+            yield return new WaitUntil(() => _checkContinuePressButton == true);
+            _tmpro.text = "";
+            _checkContinuePressButton = false;
         }
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        _dialoguePanel.SetActive(false);
     }
 
     public void ButtonDownNextPhrase()
     {
-        check = true;
-    }
-
-    public void ButtonUpNextPhrase()
-    {
-        check = false;
+        _checkContinuePressButton = true;
     }
 }
