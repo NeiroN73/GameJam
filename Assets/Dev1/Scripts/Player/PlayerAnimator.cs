@@ -7,13 +7,13 @@ public class PlayerAnimator : MonoBehaviour
 {
     public Animator _animator;
 
+    public Crossbow _cakeCatapult;
+    public Hammer _hammer;
     public InputSystem _inputSystem;
 
     public event Action OnEndAnimHammer;
     public event Action OnEndAnimCrossbow;
     public event Action OnEndAnimMop;
-
-    public ItemType ItemType;
 
     private void Start()
     {
@@ -69,39 +69,11 @@ public class PlayerAnimator : MonoBehaviour
         Vector3 direction = _inputSystem.GetDirectionMove();
         if (direction.x == 0 && direction.z == 0)
         {
-            switch (ItemType)
-            {
-                case ItemType.Crossbow:
-                    _animator.Play("CrossbowRun");
-                    break;
-                case ItemType.Hammer:
-                    _animator.Play("HammerRun");
-                    break;
-                case ItemType.Mop:
-                    _animator.Play("MopIdle");
-                    break;
-                default:
-                    _animator.Play("isMoving");
-                    break;
-            }
+            _animator.SetBool("isMoving", false);
         }
         else
         {
-            switch (ItemType)
-            {
-                case ItemType.Crossbow:
-                    _animator.Play("CrossbowRun");
-                    break;
-                case ItemType.Hammer:
-                    _animator.Play("HammerRun");
-                    break;
-                case ItemType.Mop:
-                    _animator.Play("MopRun");
-                    break;
-                default:
-                    _animator.Play("isMoving");
-                    break;
-            }
+            _animator.SetBool("isMoving", true);
         }
     }
 }

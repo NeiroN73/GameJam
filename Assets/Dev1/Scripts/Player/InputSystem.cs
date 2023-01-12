@@ -38,6 +38,11 @@ public class InputSystem : MonoBehaviour
         {
             OnLeftMouseClick?.Invoke(Input.mousePosition);
         }
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            OnSpacePressed?.Invoke();
+        }
     }
 }
 
