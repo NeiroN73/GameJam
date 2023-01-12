@@ -34,7 +34,7 @@ public class ReactionEnemy : MonoBehaviour
             Sight(true);
         }
     }
-    private void OnTriggeriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.tag == "before")
         {
