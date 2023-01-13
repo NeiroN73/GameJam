@@ -27,7 +27,7 @@ public class DialogueSystem : MonoBehaviour
         _checkKeyEPress = true;
         _tmpro.text = "";
         _dialoguePanel.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
         foreach (string phrase in dialogueText)
@@ -43,7 +43,7 @@ public class DialogueSystem : MonoBehaviour
             _checkContinuePressButton = false;
         }
 
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _dialoguePanel.SetActive(false);
         _checkKeyEPress = false;
