@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private DialogueSystem _dialogueSystem;
-
+    [SerializeField] private ReactionEnemy _reactionEnemy;
     [SerializeField] private List<string> _dialogueText;
 
     private bool _checkTrigger;
@@ -20,6 +20,8 @@ public class DialogueTrigger : MonoBehaviour
         if(other.TryGetComponent(out Player player))
         {
             _checkTrigger = true;
+            _reactionEnemy.Sight(true);
+
         }
     }
 
@@ -28,6 +30,7 @@ public class DialogueTrigger : MonoBehaviour
         if (other.TryGetComponent(out Player player))
         {
             _checkTrigger = false;
+            _reactionEnemy.Sight(false);
         }
     }
 
