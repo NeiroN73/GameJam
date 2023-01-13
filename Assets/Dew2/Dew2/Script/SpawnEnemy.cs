@@ -7,35 +7,34 @@ public class SpawnEnemy : MonoBehaviour
     public int[] numberEnemy;
     public GameObject[] Enemy;
 
-    public bool Triger = false;
+    public static bool Stops;
 
-    private void FixedUpdate()
+    public float time, timer = 3;
+
+   
+    public void SpawnSkeleton()
     {
-        if(Triger)
-        {
-            StartCoroutine(SpawnSkeleton());
 
+       
+        time -= Time.deltaTime * 2;
+        if (time <= 1)
+        {
+            if (numberEnemy[0] > 0 && numberEnemy != null)
+            {
+                Instantiate(Enemy[0], transform.position, Quaternion.identity);
+                numberEnemy[0]--;
+            }
         }
+
+    }
+    public void SpawnPolice()
+    {
         
-    }
-    public IEnumerator SpawnSkeleton()
-    {
-        Triger = false;
-        if (numberEnemy[0] > 0 && numberEnemy != null)
-        {
-            Instantiate(Enemy[0], transform.position, Quaternion.identity);
-            numberEnemy[0]--;
-        }
-        yield return new WaitForSeconds(3f);
-        Triger = true;
-    }
-    public IEnumerator SpawnPolice()
-    {
         if (numberEnemy[1] > 0 && numberEnemy != null)
         {
             Instantiate(Enemy[1], transform.position, Quaternion.identity);
             numberEnemy[1]--;
         }
-        yield return new WaitForSeconds(1000f);
+ 
     }
 }

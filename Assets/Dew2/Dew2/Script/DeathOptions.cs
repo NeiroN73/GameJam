@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class DeathOptions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+  public void SacleDead()
     {
-        
+        transform.localScale = new Vector3(0.2f, 0.02f, 0.2f);
     }
-
-    // Update is called once per frame
-    void Update()
+   public void EventDestroy()
     {
-        
+        Destroy(gameObject, 4);
     }
 }
