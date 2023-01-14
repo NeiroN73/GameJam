@@ -40,7 +40,7 @@ public class EnemySeting : MonoBehaviour
         {
             _point.Add(Points);
         }
-        
+        _animator.SetBool("Idle", true);
     }
     public void Reaction()
     {
@@ -73,7 +73,7 @@ public class EnemySeting : MonoBehaviour
         {
             _animator.SetBool("Idle", false);
         }
-        else if (Trigger && !sit)
+        else 
         {
             _trargetDistance = Vector3.Distance(gameObject.transform.position, _player.transform.position);
             Reaction();
@@ -145,10 +145,12 @@ public class EnemySeting : MonoBehaviour
             time -= Time.deltaTime * 2;
             if (time <= 1)
             {
-                _randomAct = Random.Range(1, 2);
-    
-                _animator.SetFloat("intHook", Random.Range(1, 2));
-                
+                // _randomAct = Random.Range(1, 2);
+                _animator.SetBool("Idle", false);
+                _animator.SetBool("Run", false);
+                _animator.SetFloat("intHook", Random.Range(1,2));
+                _animator.SetTrigger("hook");
+               
                 time = Random.Range(4, 6);
 
             }
@@ -163,7 +165,7 @@ public class EnemySeting : MonoBehaviour
            
       
                     
-            }
+        }
         transform.LookAt(target.transform.position);
 
     }
