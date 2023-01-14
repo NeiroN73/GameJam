@@ -21,7 +21,7 @@ public class Hammer : Weapon
         {
             if(hit.TryGetComponent(out Enemy enemy))
             {
-                Destroy(enemy.gameObject);
+                //здесь вызывать метод запуска анимации и уничтожения врага
             }
         }
     }

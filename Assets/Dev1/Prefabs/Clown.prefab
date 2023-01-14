@@ -783,6 +783,7 @@ MonoBehaviour:
   _spawnPointCake: {fileID: 858103122793850089}
   _dropForce: 1000
   _heightDrop: 10
+  _damage: 5
 --- !u!114 &723158279935947148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,6 +798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 5891383738619680603}
   CurrentWeaponModel: {fileID: 2754308955498572238}
+  Damage: 10
 --- !u!114 &2218245594904305724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,6 +827,7 @@ MonoBehaviour:
   _movementSpeed: 60
   _rotationSpeed: 0.3
   _jumpForce: 10
+  Health: 0
   _sensitivity: 5
   _borderMouseMin: 30
   _borderMouseMax: 50

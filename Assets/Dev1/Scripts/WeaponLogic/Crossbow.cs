@@ -9,6 +9,7 @@ public class Crossbow : Weapon
     [SerializeField] private Transform _spawnPointCake;
     [SerializeField] private float _dropForce;
     [SerializeField] private float _heightDrop;
+    [SerializeField] private int _damage;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class Crossbow : Weapon
     {
         Vector3 direction = transform.forward;
         Bullet bullet = Instantiate(_cakePrefab, _spawnPointCake.position, transform.rotation);
-        bullet.Initialize(new Vector3(direction.x, _heightDrop, direction.z), _dropForce);
+        bullet.Initialize(new Vector3(direction.x, _heightDrop, direction.z), _dropForce, _damage);
         print("attackCrossbow");
     }
 }
