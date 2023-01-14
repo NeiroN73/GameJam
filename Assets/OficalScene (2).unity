@@ -23056,6 +23056,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 459194165, guid: 34519d87e8bdc1a458eafaead45ab5d7, type: 3}
+      propertyPath: Health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 459194166, guid: 34519d87e8bdc1a458eafaead45ab5d7, type: 3}
+      propertyPath: sit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 459194166, guid: 34519d87e8bdc1a458eafaead45ab5d7, type: 3}
+      propertyPath: Trigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459194166, guid: 34519d87e8bdc1a458eafaead45ab5d7, type: 3}
+      propertyPath: aggressor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459194167, guid: 34519d87e8bdc1a458eafaead45ab5d7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5427c96024b8aed4d8d92ca953e98410, type: 2}
     - target: {fileID: 1588799049952311752, guid: 34519d87e8bdc1a458eafaead45ab5d7, type: 3}
       propertyPath: m_Name
       value: Scelet Variant

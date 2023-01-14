@@ -5,11 +5,11 @@ using UnityEngine;
 public class DeathOptions : MonoBehaviour
 {
     private EnemySeting _seting;
-    private Bones _bones;
+
     private void Awake()
     {
         _seting = GetComponent<EnemySeting>();
-        _bones = GetComponentInChildren<Bones>();
+      
    
     }
     public void SacleDead()
@@ -25,7 +25,7 @@ public class DeathOptions : MonoBehaviour
    public void EventDeadh()
     {
 
-        _bones.MakePhisical();
+    
         _seting.Dead();
     }
    
