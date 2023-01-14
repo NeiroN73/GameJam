@@ -55,7 +55,7 @@ public class WeaponBehaviour : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -69,6 +69,7 @@ public class WeaponBehaviour : MonoBehaviour
                 return;
 
             OnAttack();
+
         }
     }
 
@@ -105,7 +106,6 @@ public class WeaponBehaviour : MonoBehaviour
             return;
 
         _inputSystem.isMoving = false;
-        GetComponent<Player>().isMoving = false;
 
         _currentWeapon.PlayAnimation();
 
