@@ -15,7 +15,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _jumpForce;
 
-    public bool isMoving = true;
+    [SerializeField] private float _sensitivity;
+    [SerializeField] private float _borderMouseMin;
+    [SerializeField] private float _borderMouseMax;
+    private float _cinemachineTargetYaw;
+    private float _cinemachineTargetPitch;
+    [SerializeField] private Transform _cameraTarger;
+
+    private float _rotationVelocity;
 
     public int Health;
 
@@ -35,19 +42,13 @@ public class Player : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-
-        //Rotate();
-        if (isMoving == false)
-            return;
-
         Move();
     }
 
     private void LateUpdate()
     {
-        
         CameraRotation();
     }
 
@@ -60,15 +61,6 @@ public class Player : MonoBehaviour
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpForce, _rigidbody.velocity.z); //может быть баг из за разного фпс
 
     }
-
-    [SerializeField] private float _sensitivity;
-    [SerializeField] private float _borderMouseMin;
-    [SerializeField] private float _borderMouseMax;
-    private float _cinemachineTargetYaw;
-    private float _cinemachineTargetPitch;
-    [SerializeField] private Transform _cameraTarger;
-
-    private float _rotationVelocity;
 
     private void CameraRotation()
     {
