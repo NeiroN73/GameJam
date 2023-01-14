@@ -6,6 +6,7 @@ using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
+    private InputSystem _inputSystem;
     [SerializeField] private GameObject _dialoguePanel;
     [SerializeField] private Text _tmpro;
     [SerializeField] private float _textSpeed;
@@ -15,6 +16,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void Start()
     {
+        _inputSystem = GetComponent<InputSystem>();
         _dialoguePanel.SetActive(false);
     }
 
@@ -25,6 +27,7 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator OutputText(List<string> dialogueText)
     {
+        _inputSystem.isMoving = false;
         _checkKeyEPress = true;
         _tmpro.text = "";
         _dialoguePanel.SetActive(true);
@@ -48,6 +51,7 @@ public class DialogueSystem : MonoBehaviour
         Cursor.visible = false;
         _dialoguePanel.SetActive(false);
         _checkKeyEPress = false;
+        _inputSystem.isMoving = true;
     }
 
     public void ButtonDownNextPhrase()
