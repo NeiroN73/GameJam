@@ -62,6 +62,15 @@ public class WeaponBehaviour : MonoBehaviour
             if (_itemTrigger)
                 TakeItem(_itemTrigger);
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (_inputSystem.isMoving == false)
+                return;
+
+            OnAttack();
+
+        }
     }
 
     private void TakeItem(Item item)
@@ -81,11 +90,7 @@ public class WeaponBehaviour : MonoBehaviour
                 _currentWeapon.CurrentWeaponModel.SetActive(true);
             }
         }
-
-        _reactionEnemy.Sight(false);
-        _isItemTrigger = false;
-        _itemTrigger = null;
-
+        
         Destroy(item.gameObject);
     }
 
@@ -101,7 +106,6 @@ public class WeaponBehaviour : MonoBehaviour
             return;
 
         _inputSystem.isMoving = false;
-
 
         _currentWeapon.PlayAnimation();
 
