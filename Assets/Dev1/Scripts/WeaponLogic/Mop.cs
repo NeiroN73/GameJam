@@ -8,7 +8,7 @@ public class Mop : Weapon
 
     private void Start()
     {
-        playerAnimator.OnEndAnimMop += Attack;
+        playerAnimator.OnEndAnimMop += MAttack;
         CurrentWeaponModel.SetActive(false);
     }
     public override void PlayAnimation()
@@ -16,14 +16,14 @@ public class Mop : Weapon
         playerAnimator.OnAnimMopAttack();
     }
 
-    public void Attack()
+    public void MAttack()
     {
         Collider[] hits = Physics.OverlapSphere(transform.localPosition + transform.forward, 2);
         foreach (var hit in hits)
         {
-            if (hit.TryGetComponent(out Enemy enemy))
+            if (hit.TryGetComponent(out StateAmmunition enemy))
             {
-                //здесь вызывать метод прин€ти€ урона врагом с полем Damage
+                enemy.Hit(Damage,gameObject);
             }
         }
     }

@@ -14,7 +14,7 @@ public class DeathOptions : MonoBehaviour
     }
     public void SacleDead()
     {
-        transform.localScale = new Vector3(0.2f, 0.02f, 0.2f);
+        transform.localScale = new Vector3(gameObject.transform.localScale.x, 0.02f, gameObject.transform.localScale.z);
         _seting.Dead();
     }
     public void EfectBlindnes()
