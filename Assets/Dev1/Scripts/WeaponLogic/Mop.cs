@@ -19,8 +19,9 @@ public class Mop : Weapon
     public void MAttack()
     {
         Collider[] hits = Physics.OverlapSphere(transform.localPosition + transform.forward, 2);
-        foreach (var hit in hits)
+        foreach (Collider hit in hits)
         {
+            
             if (hit.TryGetComponent(out StateAmmunition enemy))
             {
                 enemy.Hit(Damage,gameObject);
