@@ -63,7 +63,7 @@ public class Menu : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void Exed()
     {

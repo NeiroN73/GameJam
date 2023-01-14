@@ -42,10 +42,10 @@ public class StateAmmunition : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.localPosition + transform.forward, 2);
         foreach (var hit in hits)
         {
-            if (hit.TryGetComponent(out StateAmmunition enemy))
+            if (hit.TryGetComponent(out Player player))
             {
                 _source.PlayOneShot(Hits);
-                // enemy.Hit(damage, gameObject);
+                player.ApplyDamage(damage);
             }
         }
     }
