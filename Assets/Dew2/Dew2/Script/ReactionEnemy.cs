@@ -27,7 +27,7 @@ public class ReactionEnemy : MonoBehaviour
 
 
     }
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "before")
         {
@@ -40,7 +40,7 @@ public class ReactionEnemy : MonoBehaviour
         {
             Sight(false);
         }
-    }
+    }*/
     
     public void Achtung( bool fear)
     {

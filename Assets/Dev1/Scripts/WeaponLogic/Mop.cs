@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mop : Weapon
 {
+    public int Damage;
+
     private void Start()
     {
         playerAnimator.OnEndAnimMop += Attack;
@@ -21,7 +23,7 @@ public class Mop : Weapon
         {
             if (hit.TryGetComponent(out Enemy enemy))
             {
-                Destroy(enemy.gameObject);
+                //здесь вызывать метод прин€ти€ урона врагом с полем Damage
             }
         }
     }

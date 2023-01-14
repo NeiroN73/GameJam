@@ -21,11 +21,12 @@ public class Menu : MonoBehaviour
     void Update()
     {
       
-        //Time.timeScale = timer; 
+        Time.timeScale = timer; 
         if (Input.GetKeyDown(KeyCode.Escape) && ispuse == false) 
         { 
             ispuse = true;
             Cursor.visible = true;
+            Screen.lockCursor = false;
             menus.SetActive(true);
         } 
         else if (Input.GetKeyDown(KeyCode.Escape) && ispuse == true) 
@@ -47,6 +48,7 @@ public class Menu : MonoBehaviour
     {
         ispuse = false;
         Cursor.visible = false;
+        Screen.lockCursor = true;
         menus.SetActive(false);
         setings.SetActive(false);
     }

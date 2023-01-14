@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private GameObject _dialoguePanel;
-    [SerializeField] private TextMeshProUGUI _tmpro;
+    [SerializeField] private Text _tmpro;
     [SerializeField] private float _textSpeed;
 
     public bool _checkContinuePressButton;

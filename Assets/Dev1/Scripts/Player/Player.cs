@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _jumpForce;
 
+    public int Health;
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -100,5 +102,15 @@ public class Player : MonoBehaviour
 
         Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
         _rigidbody.velocity += targetDirection * _movementSpeed * Time.deltaTime;
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        Health -= damage;
+
+        if (Health <= 0)
+        {
+            print("Game over");
+        }
     }
 }
