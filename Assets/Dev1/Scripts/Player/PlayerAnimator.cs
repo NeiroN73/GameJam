@@ -6,6 +6,7 @@ using System;
 public class PlayerAnimator : MonoBehaviour
 {
     public Animator _animator;
+    private Player _player;
 
     public Crossbow _cakeCatapult;
     public Hammer _hammer;
@@ -21,6 +22,7 @@ public class PlayerAnimator : MonoBehaviour
         //_hammer.OnHammerAttack += OnAnimHammerAttack;
 
         _animator = GetComponent<Animator>();
+        _player = GetComponent<Player>();
     }
 
     public void OnAnimThrowCake()
@@ -38,25 +40,28 @@ public class PlayerAnimator : MonoBehaviour
     public void OnAnimMopAttack()
     {
         _animator.SetTrigger("isMopAttack");
-        _inputSystem.isMoving = false;
+        _player.isMoving = false;
     }
 
     public void EndAnimHammer() //animation event
     {
         OnEndAnimHammer?.Invoke();
         _inputSystem.isMoving = true;
+        _player.isMoving = true;
     }
 
     public void EndAnimCrossbow() //anim event
     {
         OnEndAnimCrossbow?.Invoke();
         _inputSystem.isMoving = true;
+        _player.isMoving = true;
     }
 
     public void EndAnimMopAttack1() //anim event
     {
         OnEndAnimMop?.Invoke();
         _inputSystem.isMoving = true;
+        _player.isMoving = true;
     }
 
     private void Update()

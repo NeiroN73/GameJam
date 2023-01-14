@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _jumpForce;
 
+    public bool isMoving = true;
+
     public int Health;
 
     private void Start()
@@ -37,6 +39,9 @@ public class Player : MonoBehaviour
     {
 
         //Rotate();
+        if (isMoving == false)
+            return;
+
         Move();
     }
 

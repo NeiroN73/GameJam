@@ -5,7 +5,7 @@ using System;
 
 public class InputSystem : MonoBehaviour
 {
-    public event Action<Vector3> OnLeftMouseClick;
+    public event Action OnLeftMouseClick;
     public event Action OnSpacePressed;
     public event Action OnKeyEPressed;
 
@@ -37,7 +37,7 @@ public class InputSystem : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            OnLeftMouseClick?.Invoke(Input.mousePosition);
+            OnLeftMouseClick?.Invoke();
         }
     }
 }

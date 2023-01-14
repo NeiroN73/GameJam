@@ -55,12 +55,20 @@ public class WeaponBehaviour : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (_itemTrigger)
                 TakeItem(_itemTrigger);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (_inputSystem.isMoving == false)
+                return;
+
+            OnAttack();
         }
     }
 
@@ -91,17 +99,16 @@ public class WeaponBehaviour : MonoBehaviour
         //item.ThrowUp();
     }
 
-    private void OnAttack(Vector3 mousePosition)
+    private void OnAttack()
     {
         if (_currentWeapon == null)
             return;
 
-        Vector3 direction = _inputSystem.GetDirectionMouse();
-        float _targetRotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg +
-                          _camera.transform.eulerAngles.y;
-        float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, 0);
-        transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+        _inputSystem.isMoving = false;
+        GetComponent<Player>().isMoving = false;
 
         _currentWeapon.PlayAnimation();
+
+        transform.rotation = Quaternion.Euler(0.0f, _camera.transform.eulerAngles.y, 0.0f);
     }
 }

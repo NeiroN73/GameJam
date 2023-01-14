@@ -27,6 +27,5 @@ public class Crossbow : Weapon
         Vector3 direction = transform.forward;
         Bullet bullet = Instantiate(_cakePrefab, _spawnPointCake.position, transform.rotation);
         bullet.Initialize(new Vector3(direction.x, _heightDrop, direction.z), _dropForce, _damage);
-        print("attackCrossbow");
     }
 }
