@@ -90,7 +90,11 @@ public class WeaponBehaviour : MonoBehaviour
                 _currentWeapon.CurrentWeaponModel.SetActive(true);
             }
         }
-        
+
+        _reactionEnemy.Sight(false);
+        _isItemTrigger = false;
+        _itemTrigger = null;
+
         Destroy(item.gameObject);
     }
 
