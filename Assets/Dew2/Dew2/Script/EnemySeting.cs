@@ -20,7 +20,6 @@ public class EnemySeting : MonoBehaviour
 
 
     private float _trargetDistance;
-    public float agarDistance;
     public float time, timer = 15;//таймер
 
     public bool aggressor;//агрессивный
@@ -140,14 +139,14 @@ public class EnemySeting : MonoBehaviour
         {
             _animator.SetBool("Idle", true);
             _animator.SetBool("Run", false);
-            _randomAct = Random.Range(0, 1);
+            
 
             time -= Time.deltaTime * 2;
             if (time <= 1)
             {
                 _randomAct = Random.Range(1, 2);
     
-                _animator.SetFloat("intHook", _randomAct);
+                _animator.SetFloat("intHook", Random.Range(1, 2));
                 
                 time = Random.Range(4, 6);
 
