@@ -711,7 +711,8 @@ GameObject:
   - component: {fileID: 7374475777410687657}
   - component: {fileID: 1255193290}
   - component: {fileID: 1255193291}
-  - component: {fileID: 6301197308014885036}
+  - component: {fileID: 3879693394325939793}
+  - component: {fileID: 1255193307}
   m_Layer: 0
   m_Name: Clown
   m_TagString: Player
@@ -1055,7 +1056,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &6301197308014885036
+--- !u!114 &3879693394325939793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218245594904305719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbc914af7d41c144b03fc10c758f2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HammerClip: {fileID: 8300000, guid: 6e239468b6f1ae14f8d2a9c5072b1f50, type: 3}
+  MopClip: {fileID: 8300000, guid: 2f00dbf4c789ce2428551e779173434e, type: 3}
+  Clip: {fileID: 0}
+--- !u!81 &1255193307
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
