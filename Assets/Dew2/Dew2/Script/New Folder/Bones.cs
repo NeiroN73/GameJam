@@ -8,16 +8,20 @@ public class Bones : MonoBehaviour
     
     private void Awake()
     {
-        for (int i = 0; i < allRigitbodys.Length; i++)
-        {
-            allRigitbodys[i].isKinematic = true;
-        }
+        OffMakePhisical();
     }
     public void MakePhisical()
     {
         for (int i = 0; i < allRigitbodys.Length; i++)
         {
             allRigitbodys[i].isKinematic = false;
+        }
+    }
+    public void OffMakePhisical()
+    {
+        for (int i = 0; i < allRigitbodys.Length; i++)
+        {
+            allRigitbodys[i].isKinematic = true;
         }
     }
 }

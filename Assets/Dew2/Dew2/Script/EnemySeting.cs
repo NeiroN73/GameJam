@@ -12,19 +12,19 @@ public class EnemySeting : MonoBehaviour
 
     public GameObject _player { private get; set; }
     private Animator _animator;
-    private GameObject _pie;
+    public GameObject _pie;
 
     List<Transform> _point = new List<Transform>();
 
-    private  int _randomTarget, _randomAct;// рандомные числа _randomTarget-куда идти _randomAct - действие
+    private int _randomTarget, _randomAct;// рандомные числа _randomTarget-куда идти _randomAct - действие
 
 
-    private float  _trargetDistance;
+    private float _trargetDistance;
     public float agarDistance;
     public float time, timer = 15;//таймер
 
     public bool aggressor;//агрессивный
-    public bool blindness;//слепота
+    public bool _blindness{ private get; set; }//слепота
 
     public bool Trigger;
 
@@ -40,6 +40,7 @@ public class EnemySeting : MonoBehaviour
         {
             _point.Add(Points);
         }
+        
     }
     public void Reaction()
     {
@@ -62,20 +63,25 @@ public class EnemySeting : MonoBehaviour
     {
         
         
-        if (!Trigger)
+        if (!Trigger && !_blindness)
         {
+            _blindness = false;
             _trargetDistance = Vector3.Distance(gameObject.transform.position, _point[_randomTarget].transform.position);
             Walking();
         }
-        else
+        else if(_blindness)
+        {
+            //Blindne();
+        }
+        else if (Trigger && !_blindness)
         {
             _trargetDistance = Vector3.Distance(gameObject.transform.position, _player.transform.position);
             Reaction();
         }
     }
 
-   //действи при нормально состоянии 
-   public void Walking()
+    //действи при нормально состоянии 
+    private void Walking()
     {
         if (_trargetDistance > _agent.stoppingDistance)
         {
@@ -110,7 +116,7 @@ public class EnemySeting : MonoBehaviour
             }
         }
     }
-    void Fear()
+    private void Fear()
     {
         
         if (_trargetDistance > _agent.stoppingDistance)
@@ -126,7 +132,7 @@ public class EnemySeting : MonoBehaviour
         }
     }
 
-    public void Agar(Transform target)
+    private void Agar(Transform target)
     {
         _animator.SetBool("Box", true);
 
@@ -161,7 +167,7 @@ public class EnemySeting : MonoBehaviour
         transform.LookAt(target.transform.position);
 
     }
-    void Go_to_near_random_point()
+    private void Go_to_near_random_point()
     {// случайная точка на навмеше с проверкой досягаемости
         bool get_correct_point = false; // сгенерировалась ли корректная точка на навмеше
         while (!get_correct_point)
@@ -181,12 +187,25 @@ public class EnemySeting : MonoBehaviour
             _agent.SetDestination(random_point);
         }
     }
-    public void Hits()
+    
+   /*public void Blindne()
     {
+        _pie.SetActive(true);
+        _agent.Stop();
+        time -= Time.deltaTime * 2;
+        if (time <= 1)
+        {
+            
+            _pie.SetActive(false);
+            _agent.Resume();
+            _blindness = false;
 
-    }
+        }
+    }*/
     public void Dead()
     {
-
+        _agent.Stop();
+        _animator.enabled = false;
+        Destroy(gameObject, 5);
     }
 }

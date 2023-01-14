@@ -5572,7 +5572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136094303352826846, guid: 0805ca93d787b0241a8d2ff3a454baf8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.43698
+      value: 8.23
       objectReference: {fileID: 0}
     - target: {fileID: 9136094303352826846, guid: 0805ca93d787b0241a8d2ff3a454baf8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5580,7 +5580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136094303352826846, guid: 0805ca93d787b0241a8d2ff3a454baf8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.825
+      value: 28.879
       objectReference: {fileID: 0}
     - target: {fileID: 9136094303352826846, guid: 0805ca93d787b0241a8d2ff3a454baf8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7097,6 +7097,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1255193291, guid: cf04641376bd8ca4f8dbc2d75174c69b, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2218245594904305719, guid: cf04641376bd8ca4f8dbc2d75174c69b, type: 3}
       propertyPath: m_Name
       value: Clown
@@ -10013,7 +10017,7 @@ GameObject:
   - component: {fileID: 578360262}
   - component: {fileID: 578360261}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: "\u0444\u043E\u043D"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14613,7 +14617,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 8.057472
-  MaxDistance: 12.6158905
+  MaxDistance: 13.96669
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -18230,7 +18234,7 @@ GameObject:
   - component: {fileID: 1046384138}
   - component: {fileID: 1046384137}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: "\u0437\u0432\u0443\u043A\u043C\u0422\u0443\u0430\u043B\u0435\u0442\u0430"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18248,7 +18252,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3360481689382247842, guid: 5e8560561257f544cb3d8f47e8499665, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4ef54f3c56059de409bebbd2facc7c70, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.702
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -18257,7 +18261,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 2.06
-  MaxDistance: 6.156902
+  MaxDistance: 7.0716257
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
