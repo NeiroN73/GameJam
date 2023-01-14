@@ -24,6 +24,7 @@ public class EnemySeting : MonoBehaviour
 
     public bool aggressor;//агрессивный
     public bool _blindness{ private get; set; }//слепота
+    public bool sit;
 
     public bool Trigger;
 
@@ -62,17 +63,17 @@ public class EnemySeting : MonoBehaviour
     {
         
         
-        if (!Trigger && !_blindness)
+        if (!Trigger && !sit)
         {
             _blindness = false;
             _trargetDistance = Vector3.Distance(gameObject.transform.position, _point[_randomTarget].transform.position);
             Walking();
         }
-        else if(_blindness)
+        else if(sit)
         {
-            //Blindne();
+            _animator.SetBool("Idle", false);
         }
-        else if (Trigger && !_blindness)
+        else if (Trigger && !sit)
         {
             _trargetDistance = Vector3.Distance(gameObject.transform.position, _player.transform.position);
             Reaction();

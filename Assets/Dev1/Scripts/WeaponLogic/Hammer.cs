@@ -6,7 +6,7 @@ public class Hammer : Weapon
 {
     private void Start()
     {
-        playerAnimator.OnEndAnimHammer += Attack;
+        playerAnimator.OnEndAnimHammer += HAttack;
         CurrentWeaponModel.SetActive(false);
     }
     public override void PlayAnimation()
@@ -14,14 +14,14 @@ public class Hammer : Weapon
         playerAnimator.OnAnimHammerAttack();
     }
 
-    public void Attack()
+    public void HAttack()
     {
         Collider[] hits = Physics.OverlapSphere(transform.localPosition + transform.forward, 1);
         foreach (var hit in hits)
         {
-            if(hit.TryGetComponent(out Enemy enemy))
+            if(hit.TryGetComponent(out DeathOptions enemy))
             {
-                //здесь вызывать метод запуска анимации и уничтожения врага
+                enemy.SacleDead();
             }
         }
     }
