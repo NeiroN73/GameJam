@@ -15,6 +15,7 @@ public class EnemySeting : MonoBehaviour
     public GameObject _pie;
 
     List<Transform> _point = new List<Transform>();
+ 
 
     private int _randomTarget, _randomAct;// рандомные числа _randomTarget-куда идти _randomAct - действие
 
@@ -41,6 +42,11 @@ public class EnemySeting : MonoBehaviour
             _point.Add(Points);
         }
         _animator.SetBool("Idle", true);
+
+    }
+    private void Start()
+    {
+        _randomTarget = Random.Range(0, _point.Count);
     }
     public void Reaction()
     {
@@ -66,8 +72,13 @@ public class EnemySeting : MonoBehaviour
         if (!Trigger && !sit)
         {
             _blindness = false;
-            _trargetDistance = Vector3.Distance(gameObject.transform.position, _point[_randomTarget].transform.position);
-            Walking();
+    
+            
+                
+                _trargetDistance = Vector3.Distance(gameObject.transform.position, _point[_randomTarget].transform.position);
+                Walking();
+            
+           
         }
         else if(sit)
         {
@@ -85,16 +96,20 @@ public class EnemySeting : MonoBehaviour
     {
         if (_trargetDistance > _agent.stoppingDistance)
         {
+       
             _agent.SetDestination(_point[_randomTarget].position);
             _animator.SetBool("Idle", false);
             _animator.SetBool("Run", true);
+           
         }
         else
         {
+      
             _randomAct = Random.Range(0, 1);
             switch (_randomAct)
             {
                 case 1:
+                    
                     _randomTarget = Random.Range(0, _point.Count);
                     break;
                 default://ожидание при 0
@@ -104,11 +119,13 @@ public class EnemySeting : MonoBehaviour
                         _randomTarget = Random.Range(0, _point.Count);
                         _animator.SetBool("Idle", false);
                         _animator.SetBool("Run", true);
+                    
                         time = timer;
 
                     }
                     else
                     {
+                       
                         _animator.SetBool("Idle",true);
                         _animator.SetBool("Run", false);
                     }

@@ -8,7 +8,7 @@ public class AudioEvents : MonoBehaviour
      AudioSource source;
     public AudioClip HammerClip;
     public AudioClip MopClip;
-    public AudioClip Clip;
+    public AudioClip Step;
     private void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -21,8 +21,8 @@ public class AudioEvents : MonoBehaviour
     {
         source.PlayOneShot(MopClip);
     }
-    public void Audio()
+    public void Steps()
     {
-        source.PlayOneShot(Clip);
+        source.PlayOneShot(Step);
     }
 }

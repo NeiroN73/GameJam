@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalScale.x
@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9913129
+      value: -6.306
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalPosition.y
@@ -214,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_Name
-      value: "\u0434\u0435\u0432\u0443\u0448\u043A\u04301 Variant"
+      value: "\u0434\u0435\u0432\u0443\u0448\u043A\u04301 Variant (4)"
       objectReference: {fileID: 0}
     - target: {fileID: 2559285840627121667, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -390,7 +390,7 @@ MonoBehaviour:
   pointArray: {fileID: 0}
   _pie: {fileID: 0}
   time: 0
-  timer: 5
+  timer: 4
   aggressor: 1
   sit: 0
   Trigger: 0
