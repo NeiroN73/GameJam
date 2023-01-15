@@ -27,13 +27,13 @@ public class StateAmmunition : MonoBehaviour
         _enemy = GetComponent<EnemySeting>();
         _death = GetComponent<DeathOptions>();
     }
-    public void Hit(int hit, GameObject target)
+    public void Hit(int hit)
     {
 
         Health -= hit;
         _enemy.Reaction();
 
-        _enemy._player = target;
+       
         _source.PlayOneShot(DamagClip);
         if (Health <= 0)
         {

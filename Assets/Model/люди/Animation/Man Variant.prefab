@@ -214,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 334551359338caf4ba312f0898463b4b, type: 3}
       propertyPath: m_Name
-      value: Man
+      value: Man Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2559285840627121667, guid: 334551359338caf4ba312f0898463b4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -388,8 +388,8 @@ MonoBehaviour:
   _pie: {fileID: 0}
   time: 0
   timer: 2
-  aggressor: 1
-  sit: 1
+  aggressor: 0
+  sit: 0
   Trigger: 0
 --- !u!114 &774468796508370571
 MonoBehaviour:
@@ -451,5 +451,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4495865, y: 2.215629, z: 1}
-  m_Center: {x: 0.039318267, y: 3.0053065, z: -1.7161048e-10}
+  m_Size: {x: 1.4495865, y: 3.6099193, z: 1}
+  m_Center: {x: 0.039318267, y: 2.3081613, z: -1.7161048e-10}

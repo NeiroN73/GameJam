@@ -13,7 +13,7 @@ public class tester : MonoBehaviour
     }
     public IEnumerator SpawnSkeleton()
     {
-        Gm.Hit(10, Gms);
+        Gm.Hit(10);
         yield return new WaitForSeconds(3f);
         
     }

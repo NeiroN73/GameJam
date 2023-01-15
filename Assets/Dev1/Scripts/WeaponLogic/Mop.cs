@@ -24,7 +24,7 @@ public class Mop : Weapon
             
             if (hit.TryGetComponent(out StateAmmunition enemy))
             {
-                enemy.Hit(Damage,gameObject);
+                enemy.Hit(Damage);
             }
         }
     }
