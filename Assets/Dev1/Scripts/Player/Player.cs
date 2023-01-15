@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -10,8 +9,6 @@ public class Player : MonoBehaviour
     private Rigidbody _rigidbody;
     private CharacterController _controller;
     private Camera _camera;
-    [SerializeField] private CinemachineVirtualCamera _cinemachine;
-
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _jumpForce;
