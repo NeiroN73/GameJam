@@ -16,8 +16,13 @@ public class StateAmmunition : MonoBehaviour
     public AudioClip DamagClip;
     public AudioClip DeadsClip;
 
+    public GameObject Players;
+    public Player _player;
+
     public void Awake()
     {
+        Players = GameObject.FindWithTag("Player");
+        _player = Players.GetComponent<Player>();
         _source = GetComponent<AudioSource>();
         _enemy = GetComponent<EnemySeting>();
         _death = GetComponent<DeathOptions>();
@@ -39,14 +44,7 @@ public class StateAmmunition : MonoBehaviour
     }
     public void Attack()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.localPosition + transform.forward, 2);
-        foreach (var hit in hits)
-        {
-            if (hit.TryGetComponent(out Player player))
-            {
-                _source.PlayOneShot(Hits);
-                player.ApplyDamage(damage);
-            }
-        }
+        _source.PlayOneShot(Hits);
+        _player.ApplyDamage(damage);
     }
 }
