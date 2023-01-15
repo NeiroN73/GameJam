@@ -825,7 +825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cinemachine: {fileID: 0}
   _movementSpeed: 60
-  _rotationSpeed: 0.3
+  _rotationSpeed: 1
   _jumpForce: 10
   _sensitivity: 5
   _borderMouseMin: 30

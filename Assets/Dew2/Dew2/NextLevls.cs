@@ -8,7 +8,7 @@ public class NextLevls : MonoBehaviour
     {
         if (other.TryGetComponent(out Player player))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name + 1);
+            SceneManager.LoadScene(1);
 
         }
     }

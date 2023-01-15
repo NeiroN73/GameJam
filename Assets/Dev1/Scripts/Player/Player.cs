@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Cinemachine;
 
 public class Player : MonoBehaviour
@@ -107,7 +108,7 @@ public class Player : MonoBehaviour
 
         if (Health <= 0)
         {
-            print("Game over");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

@@ -21,7 +21,8 @@ public class DialogueTriggerNotKey : MonoBehaviour
         {
             _checkTrigger = true;
             _reactionEnemy.Sight(true);
-
+            _dialogueSystem.StopAllCoroutines();
+            _dialogueSystem.StartDialogue(_dialogueText);
         }
     }
 
@@ -31,6 +32,7 @@ public class DialogueTriggerNotKey : MonoBehaviour
         {
             _checkTrigger = false;
             _reactionEnemy.Sight(false);
+            Destroy(gameObject);
         }
     }
 

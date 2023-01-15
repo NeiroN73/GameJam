@@ -140,7 +140,8 @@ public class EnemySeting : MonoBehaviour
         {
             _agent.SetDestination(_point[_randomTarget].position);
             _animator.SetBool("Idle", false);
-            _animator.SetBool("Run", true);
+            _animator.SetBool("Run", false);
+            _animator.SetBool("fear", true);
             
         }
         else 
@@ -223,6 +224,9 @@ public class EnemySeting : MonoBehaviour
     }*/
     public void Dead()
     {
+        _animator.SetBool("Idle", false);
+        _animator.SetBool("Run", false);
+         _animator.SetTrigger("Dead");
         _agent.Stop();
         _animator.enabled = false;
         Destroy(gameObject, 5);

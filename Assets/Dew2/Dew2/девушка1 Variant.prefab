@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_RootOrder
-      value: 35
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalScale.x
@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.306
+      value: -6.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalPosition.y
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.93471
+      value: 24.76
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalRotation.w
@@ -214,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_Name
-      value: "\u0434\u0435\u0432\u0443\u0448\u043A\u04301 Variant (4)"
+      value: "\u0434\u0435\u0432\u0443\u0448\u043A\u04301 Variant (3)"
       objectReference: {fileID: 0}
     - target: {fileID: 2559285840627121667, guid: 652e122081c1cd6428d1f90bb0d2e027, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -353,7 +353,7 @@ Animator:
   m_GameObject: {fileID: 4923900090294819685}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8379eb7866ed87499ead3f81e129e83, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4c36fbb0afb6af04dbdb33044884ca18, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   _pie: {fileID: 0}
   time: 0
   timer: 4
-  aggressor: 1
+  aggressor: 0
   sit: 0
   Trigger: 0
 --- !u!114 &1394584974
@@ -477,7 +477,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 31.936737
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
